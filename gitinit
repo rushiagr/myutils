@@ -1,0 +1,6 @@
+# Initializes git config for me in a machine
+
+git config --global user.name "Rushi Agrawal"
+git config --global user.email rushi.agr@gmail.com
+
+
