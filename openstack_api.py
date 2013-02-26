@@ -167,8 +167,31 @@ class API(object):
         return data
     
     def cinder_delete_all(self):
-        
-        
+        """
+        Deletes all the volumes present in Cinder. As of this version,
+        it tries to delete the volumes which are not in 'available' and
+        'error' states too.
+        """
+        list_data = self.cinder_list()
+        volumes = list_data['volumes']
+        volume_ids = []
+        for volume in volumes:
+            volume_ids.append(str(volume['id']))
+        for volume_id in volume_ids:
+            self.cinder_delete(volume_id)
+        print "successfully deleted all volumes"
+        return
+    
+    def cinder_create_many(self, vol_number, vol_sizes=[1]):
+        """
+        Creates volumes equal to :vol_number: with sizes as per list
+        :vol_sizes:. If there are more volumes than elements in list
+        :vol_sizes:, a default value of 1GB will be used.
+        """
+        if vol_number > len(vol_sizes):
+            vol_sizes.extend([1]*(vol_number-len(vol_sizes)))
+        for vol_index in range(vol_number):
+            self.cinder_create(vol_sizes[vol_index])
 
 if __name__ == '__main__':
     a = API()
