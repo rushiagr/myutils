@@ -15,7 +15,7 @@ one single line to that file:
     /etc/apt/sources.list.d/10gen.list
 
 Just want to copy paste? Get it here:
-    echo "/etc/apt/sources.list.d/10gen.list" > /etc/apt/sources.list.d/10gen.list
+	echo "/etc/apt/sources.list.d/10gen.list" > /etc/apt/sources.list.d/10gen.list
 
 Update package list
     apt-get update
