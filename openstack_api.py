@@ -7,7 +7,7 @@ class API(object):
     """API object to connect to an OpenStack environment."""
     
     def __init__(self, osurl=None, osuser=None, ospassword=None):
-        self.url = osurl or "10.63.165.22"
+        self.url = osurl or "10.63.165.20"
         self.osuser = osuser or "demo"
         self.ospassword = ospassword or "nova"
         
@@ -139,6 +139,8 @@ class API(object):
         token = datadict['access']['token']['id']
         return str(token)
 
+    # All the cinder volume functions
+
     def cinder_create(self, size):
         headers = self.default_header
         headers["X-Auth-Token"] = self.token
@@ -149,6 +151,17 @@ class API(object):
                                   headers)
         return data
     
+#    def cinder_share_create(self, size, proto):
+#        headers = self.default_header
+#        headers["X-Auth-Token"] = self.token
+#        params = {"share": {"size": size,
+#                            "share_type": proto}}
+#        data = self.get_post_data(self.cinder_host,
+#                                  '/v1/%s/shares' % self.tenant_id,
+#                                  params,
+#                                  headers)
+#        return data
+    
     def cinder_list(self):
         headers = self.default_header
         headers["X-Auth-Token"] = self.token
@@ -156,6 +169,46 @@ class API(object):
                                  '/v1/%s/volumes' % self.tenant_id,
                                  headers)
         return data
+    
+    def cinder_list_detail(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v1/%s/volumes/detail' % self.tenant_id,
+                                 headers)
+        return data
+    
+    def cinder_list_v2(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v2/%s/volumes' % self.tenant_id,
+                                 headers)
+        return data
+    
+    def cinder_list_detail_v2(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v2/%s/volumes/detail' % self.tenant_id,
+                                 headers)
+        return data
+    
+    def cinder_snapshot_list(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v2/%s/snapshots' % self.tenant_id,
+                                 headers)
+        return data
+    
+#    def cinder_share_list(self):
+#        headers = self.default_header
+#        headers["X-Auth-Token"] = self.token
+#        data = self.get_get_data(self.cinder_host,
+#                                 '/v1/%s/shares' % self.tenant_id,
+#                                 headers)
+#        return data
     
     def cinder_delete(self, vol_id):
         headers = self.default_header
@@ -183,6 +236,157 @@ class API(object):
         return
     
     def cinder_create_many(self, vol_number, vol_sizes=[1]):
+        """
+        Creates volumes equal to :vol_number: with sizes as per list
+        :vol_sizes:. If there are more volumes than elements in list
+        :vol_sizes:, a default value of 1GB will be used.
+        """
+        if vol_number > len(vol_sizes):
+            vol_sizes.extend([1]*(vol_number-len(vol_sizes)))
+        for vol_index in range(vol_number):
+            self.cinder_create(vol_sizes[vol_index])
+
+    # All the cinder SHARE functions
+
+    def cinder_share_create(self, size, proto):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"share": {"size": size,
+                            "share_type": proto}}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/shares' % self.tenant_id,
+                                  params,
+                                  headers)
+        return data
+    
+    def cinder_share_allow(self, share_id, access_type, access_to):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"os-allow_access": {"access_type": access_type,
+                                      "access_to": access_to}}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/shares/%s/action' % (self.tenant_id,share_id),
+                                  params,
+                                  headers)
+        return data
+        
+    def cinder_share_deny(self, share_id, access_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"os-deny_access": {"access_id": access_id}}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/shares/%s/action' % (self.tenant_id,share_id),
+                                  params,
+                                  headers)
+        return data
+
+    def cinder_share_access_list(self, share_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"os-access_list": None}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/shares/%s/action' % (self.tenant_id,share_id),
+                                  params,
+                                  headers)
+        return data
+        
+    
+    #TODO(rushiagr): merge this def into the above one
+    def cinder_share_create_from_snapshot(self, size, proto, snap_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"share": {"size": size,
+                            "share_type": proto,
+                            "share_id": snap_id}}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/shares' % self.tenant_id,
+                                  params,
+                                  headers)
+        return data
+    
+    def cinder_share_list(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v1/%s/shares' % self.tenant_id,
+                                 headers)
+        return data
+    
+    def cinder_share_snapshot_list(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v1/%s/share-snapshots' % self.tenant_id,
+                                 headers)
+        return data
+    
+    def cinder_share_show(self, share_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v1/%s/shares/%s' % (self.tenant_id, share_id),
+                                 headers)
+        return data
+    
+    def cinder_share_list_detail(self):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.get_get_data(self.cinder_host,
+                                 '/v1/%s/shares/detail' % self.tenant_id,
+                                 headers)
+        return data
+    
+    def cinder_share_delete(self, vol_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        data = self.send_request("DELETE",
+                                      self.cinder_host,
+                                      '/v1/%s/shares/%s' % (self.tenant_id,
+                                                             vol_id))
+        return data
+    
+    def cinder_share_snapshot_create(self, shr_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"share-snapshot": {"share_id": shr_id,
+                               #"display_name": "timepass_name"
+                               }}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/share-snapshots' % self.tenant_id,
+                                  params,
+                                  headers)
+        return data
+        
+    def cinder_share_snapshot_delete(self, shr_id):
+        headers = self.default_header
+        headers["X-Auth-Token"] = self.token
+        params = {"share-snapshot": {"share_id": shr_id,
+                               #"display_name": "timepass_name"
+                               }}
+        data = self.get_post_data(self.cinder_host,
+                                  '/v1/%s/share-snapshots' % self.tenant_id,
+                                  params,
+                                  headers)
+        return data
+        
+    
+    def cinder_share_delete_all(self):
+        """
+        Deletes all the volumes present in Cinder. As of this version,
+        it tries to delete the volumes which are not in 'available' and
+        'error' states too.
+        """
+        list_data = self.cinder_share_list()
+        shares = list_data['shares']
+        share_ids = []
+        for share in shares:
+            share_ids.append(str(share['id']))
+        for share_id in share_ids:
+            self.cinder_share_delete(share_id)
+        print "successfully deleted all volumes"
+        return
+    
+    def cinder_share_create_many(self, vol_number, vol_sizes=[1]):
         """
         Creates volumes equal to :vol_number: with sizes as per list
         :vol_sizes:. If there are more volumes than elements in list
