@@ -1,7 +1,0 @@
-
-# Program to show screens for OpenStack in DevStack
-# Run as root user only
-
-chown stack:stack `readlink /proc/self/fd/0`
-su - stack
-

@@ -13,3 +13,14 @@ br() {
 	fi
 }
 
+# Dirty solution to make the mouse work in case it doesn't.
+# Don't try to use it if your mouse work fine. It might cause
+# scrolling to stop permanently on your laptop.
+alias ms='sudo modprobe -r psmouse; sudo modprobe psmouse proto=imps'
+
+alias gitinit='\
+git config --global user.name "Rushi Agrawal"; \
+git config --global user.email rushi.agr@gmail.com'
+
+# FS stands for 'fix screen'
+alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
