@@ -24,3 +24,8 @@ git config --global user.email rushi.agr@gmail.com'
 
 # FS stands for 'fix screen'
 alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
+
+## All git aliases
+alias gcam='git commit -a -m'
+alias gcaa='git commit -a --amend'
+alias gpom='git push origin master'
