@@ -38,6 +38,10 @@ alias gpom='git push origin master'
 # TODO: if current working directory is inside the mountpoint, then
 #   move out of that directory and then umount
 mntq () {
+    if [[ -z $1 ]]; then
+        echo "  usage: mntq image-to-mount.qcow2 [/mountpoint]"
+        kill -INT $$
+    fi
     MNTPOINT=/mnt
     if [[ ! -z $2 ]]; then
         $MNTPOINT=$2;
