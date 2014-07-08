@@ -29,6 +29,10 @@ alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
 alias gcam='git commit -a -m'
 alias gcaa='git commit -a --amend'
 alias gpom='git push origin master'
+alias gs='git status'
+alias gb='git branch'
+alias gr='git remote --verbose'
+alias gba='git branch --all'
 
 
 ### Commands to mount and unmount a qcow2 image, for modifications
