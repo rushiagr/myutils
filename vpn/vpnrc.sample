@@ -1,0 +1,15 @@
+# Username to connect to VPN
+USER=john.doe
+
+# Gateway of router at home. Usually ends with a .1 or a .0
+HOMEGW=192.168.56.1
+
+# Gateway of router at office. Usually ends with a .1 or a .0
+OFFICEGW=100.100.100.1
+
+# IP of the VPN to connect
+VPNIP=23.24.25.26
+
+# Subnets you want to access, which are inside the VPN
+ROUTES=10.135.120.0,10.135.123.0,10.135.96.0,10.135.126.0
+
