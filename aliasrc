@@ -2,6 +2,7 @@ alias ll='ls -alh --group-directories-first'
 alias rmf='sudo rm -rf'
 alias dfh='df -h'
 alias du='du -sch'
+alias ps='ps aux'
 
 # Proper brightness in the night. I think will work for daytime as well
 br() {
