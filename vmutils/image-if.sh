@@ -35,7 +35,7 @@ mntq $1
 GATEWAY=`echo $2 | cut -d'.' -f1,2,3`
 GATEWAY=$GATEWAY.1
 
-cat > /mnt/etc/network/interfaces <<EOF
+sudo bash -c "cat > /mnt/etc/network/interfaces <<EOF
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
@@ -49,7 +49,7 @@ iface eth0 inet static
 address $2
 netmask 255.255.255.0
 gateway $GATEWAY
-EOF
+EOF"
 
 echo "IP $2 successfully inserted into image `echo $1 | rev | cut -d'/' -f1 | rev`"
 
