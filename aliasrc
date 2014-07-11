@@ -1,6 +1,6 @@
 alias ll='ls -alh --group-directories-first'
 alias rmf='sudo rm -rf'
-alias dfh='df -h'
+alias df='df -h'
 alias du='du -sch'
 alias ps='ps aux'
 
