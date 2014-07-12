@@ -92,5 +92,5 @@ net-unroute() {
         kill -INT $$
     fi  
     sudo iptables --delete POSTROUTING --table nat --out-interface $1 --jump MASQUERADE
-    sudo iptables --delete FORWARD --in-interface $2 --out-interface $1 --match state --state RELATED,E    STABLISHED --jump ACCEPT
+    sudo iptables --delete FORWARD --in-interface $2 --out-interface $1 --match state --state RELATED,ESTABLISHED --jump ACCEPT
 }
