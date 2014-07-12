@@ -4,6 +4,8 @@ alias df='df -h'
 alias du='du -sch'
 alias ps='ps aux'
 alias psg='ps aux | grep'
+alias gi='grep -i'
+alias gri='grep -ri'
 
 # Proper brightness in the night. I think will work for daytime as well
 br() {
