@@ -6,6 +6,7 @@ alias ps='ps aux'
 alias psg='ps aux | grep'
 alias gi='grep -i'
 alias gri='grep -ri'
+alias free='free -h'
 
 # Proper brightness in the night. I think will work for daytime as well
 br() {
@@ -41,6 +42,7 @@ alias gb='git branch'
 alias gl='git log'
 alias gr='git remote --verbose'
 alias gba='git branch --all'
+alias gpuom='git pull origin master'
 
 
 ### Commands to mount and unmount a qcow2 image, for modifications
