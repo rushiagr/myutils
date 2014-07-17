@@ -7,6 +7,7 @@ alias psg='ps aux | grep'
 alias gi='grep -i'
 alias gri='grep -ri'
 alias free='free -h'
+alias ssh='ssh -X'
 
 # Proper brightness in the night. I think will work for daytime as well
 br() {
@@ -45,6 +46,10 @@ alias gba='git branch --all'
 alias gpuom='git pull origin master'
 alias gitremove='git reset --soft HEAD^ && git reset --hard'
 gc() {
+    if [[ -z $1 ]]; then
+        echo "usage: gc <github-user>/<repository>"
+        return
+    fi
     git clone https://github.com/$1
 }
 alias gd='git diff'
