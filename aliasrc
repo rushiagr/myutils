@@ -45,13 +45,15 @@ alias gr='git remote --verbose'
 alias gba='git branch --all'
 alias gpuom='git pull origin master'
 alias gitremove='git reset --soft HEAD^ && git reset --hard'
-gc() {
+gcl() {
     if [[ -z $1 ]]; then
         echo "usage: gc <github-user>/<repository>"
         return
     fi
     git clone https://github.com/$1
 }
+alias gch='git checkout'
+alias gchb='git checkout -b'
 alias gd='git diff'
 
 ### Commands to mount and unmount a qcow2 image, for modifications
