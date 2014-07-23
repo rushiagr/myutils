@@ -5,7 +5,7 @@ alias du='du -sch'
 alias ps='ps aux'
 alias psg='ps aux | grep'
 alias gi='grep -i'
-alias gri='grep -ri'
+alias gri='grep -rin'
 alias free='free -h'
 alias ssh='ssh -X'
 
