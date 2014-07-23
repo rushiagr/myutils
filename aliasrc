@@ -55,6 +55,7 @@ gcl() {
 alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gd='git diff'
+alias gdecorate='git log --oneline --graph --decorate --all'
 
 ### Commands to mount and unmount a qcow2 image, for modifications
 ## $1 is the qcow2 image
