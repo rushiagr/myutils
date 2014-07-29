@@ -123,3 +123,5 @@ net-unroute() {
     sudo iptables --delete POSTROUTING --table nat --out-interface $1 --jump MASQUERADE
     sudo iptables --delete FORWARD --in-interface $2 --out-interface $1 --match state --state RELATED,ESTABLISHED --jump ACCEPT
 }
+
+export VPN_CONF_PATH=__VPN_CONF_PATH__
