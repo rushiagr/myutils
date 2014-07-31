@@ -3,9 +3,12 @@
 # usage: image-if.sh IMAGE IP
 # Assign $IP to eth0 of IMAGE qcow2 image
 
-#TODO: add check conditions: if two variables are not provided
-#TODO: output that this image will now have this IP
 #TODO: mount at a tempdir created by mktemp
+
+if [ $# -lt 2 ]; then
+    echo "  usage: image-if.sh IMAGE IP"
+    exit 1
+fi
 
 mntq () {
     if [[ -z $1 ]]; then
