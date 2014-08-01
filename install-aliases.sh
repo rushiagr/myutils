@@ -19,4 +19,7 @@ if [ $IS_BASHRC_EDITED -eq 0 ]; then
     echo "source ~/.aliasrc" >> ~/.bashrc
 fi
 
-source ~/.aliasrc
+echo "Install successful."
+echo "Aliases will be sourced from the next new shell session. To source them in the current session, do"
+echo "    source ~/.aliasrc"
+
