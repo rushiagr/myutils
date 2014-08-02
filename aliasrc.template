@@ -9,6 +9,17 @@ alias gri='grep -rin'
 alias free='free -h'
 alias ssh='ssh -X'
 
+alias au='sudo apt-get update'
+alias ai='sudo apt-get install'
+alias auy='sudo apt-get update --assume-yes'
+alias aiy='sudo apt-get install --assume-yes'
+alias aac='sudo apt-get autoclean'
+alias aar='sudo apt-get autoremove'
+alias ap='sudo apt-get purge'
+alias ar='sudo apt-get remove'
+
+alias dpg='dpkg -l | grep'
+
 # Proper brightness in the night. I think will work for daytime as well
 br() {
 	if [[ -z $1 ]]; then
