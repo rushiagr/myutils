@@ -17,6 +17,7 @@ alias aac='sudo apt-get autoclean'
 alias aar='sudo apt-get autoremove'
 alias ap='sudo apt-get purge'
 alias ar='sudo apt-get remove'
+alias ad='sudo apt-get dist-upgrade'
 
 alias dpg='dpkg -l | grep'
 
