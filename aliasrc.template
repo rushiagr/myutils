@@ -21,6 +21,10 @@ alias ad='sudo apt-get dist-upgrade'
 
 alias dpg='dpkg -l | grep'
 
+zresolvconf() {
+    echo "nameserver 127.0.1.1" | sudo tee /etc/resolv.conf
+}
+
 # Proper brightness in the night. I think will work for daytime as well
 br() {
 	if [[ -z $1 ]]; then
