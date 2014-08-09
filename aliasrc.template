@@ -25,19 +25,6 @@ zresolvconf() {
     echo "nameserver 127.0.1.1" | sudo tee /etc/resolv.conf
 }
 
-# Proper brightness in the night. I think will work for daytime as well
-br() {
-	if [[ -z $1 ]]; then
-		echo "usage: br INT"
-		echo "  INT is an integer from 1 to 4"
-	elif [ $1 -eq 1 -o $1 -eq 2 -o $1 -eq 3 -o $1 -eq 4 ]; then
-	        echo $(($1*1000)) | sudo tee /sys/class/backlight/intel_backlight/brightness >/dev/null;
-	else
-		echo "usage: br INT"
-		echo "  INT is an integer from 1 to 4"
-	fi
-}
-
 # Dirty solution to make the mouse work in case it doesn't.
 # Don't try to use it if your mouse work fine. It might cause
 # scrolling to stop permanently on your laptop.
