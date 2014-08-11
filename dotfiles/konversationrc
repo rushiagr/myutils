@@ -2,7 +2,7 @@
 update_info=konversation.upd:1.1-rememberline,konversation.upd:1.1-markerlines,konversation.upd:0.20-customfonts,konversation.upd:0.20-quickbuttons,konversation.upd:0.19-notifylists,konversation.upd:0.19-appearance,konversation.upd:0.19-browser,konversation.upd:0.19-flags,konversation.upd:0.19-highlightcolors,konversation.upd:0.19-osdcolors,konversation.upd:0.19-sortorder,konversation.upd:0.19-colors,konversation.upd:0.19-generaloptions,konversation.upd:0.19-cleanup-themes,konversation.upd:0.19-cleanup-notifylist,konversation.upd:0.19-cleanup-dcc,konversation.upd:0.19-cleanup-colors,konversation.upd:0.19-cleanup-hilightlist,konversation.upd:0.19-cleanup-notificationmessages,konversation.upd:0.19-cleanup-ledcolors,konversation.upd:0.19-cleanup-kmditaskbar,konversation.upd:0.19-channelsplitter
 
 [Aliases]
-AliasList=mail /exec mail,bug /exec bug,cmd /exec cmd,uptime /exec uptime,fortune /exec fortune,media /exec media,audio /exec media audio,video /exec media video,tinyurl /exec tinyurl,sayclip /exec sayclip,sysinfo /exec sysinfo,gauge /exec gauge
+AliasList=gauge /exec gauge,sysinfo /exec sysinfo,sayclip /exec sayclip,tinyurl /exec tinyurl,video /exec media video,audio /exec media audio,media /exec media,fortune /exec fortune,uptime /exec uptime,cmd /exec cmd,bug /exec bug,mail /exec mail
 
 [Appearance]
 ChannelSplitterSizes=1582,122
@@ -35,8 +35,52 @@ Button5=Ban,/BAN %u%n
 Button6=Part,/PART %c Leaving...%n
 Button7=Quit,/QUIT Leaving...%n
 
+[Channel 0]
+EnableNotifications=true
+Name=#jiocloud
+Password=
+
+[Channel 1]
+EnableNotifications=true
+Name=#openstack-cinder
+Password=
+
+[Channel 2]
+EnableNotifications=true
+Name=#openstack-dev
+Password=
+
+[Channel 3]
+EnableNotifications=true
+Name=#openstack-nova
+Password=
+
+[Channel 4]
+EnableNotifications=true
+Name=#openstack-trove
+Password=
+
+[Channel 5]
+EnableNotifications=true
+Name=#openstack-glance
+Password=
+
+[Channel 6]
+EnableNotifications=true
+Name=#magnetodb
+Password=
+
+[Channel 7]
+EnableNotifications=true
+Name=#kubuntu
+Password=
+
 [DCC Settings]
 IPv4FallbackIface=0
+PanelSplitter=AAAA/wAAAAAAAAAC//////////8BAAAABgEAAAAC
+
+[Flags]
+TabPlacement=Left
 
 [Identity 0]
 AuthType=nickserv
@@ -103,7 +147,7 @@ Server=furnace.firrre.com
 [ServerGroup 0]
 AutoConnect=true
 AutoJoinChannels=
-ChannelHistory=
+ChannelHistory=Channel 0,Channel 1,Channel 2,Channel 3,Channel 4,Channel 5,Channel 6,Channel 7
 ConnectCommands=
 EnableNotifications=true
 Expanded=false
@@ -111,3 +155,7 @@ Identity=Default Identity
 Name=a
 NotifyList=
 ServerList=Server 0
+
+[ServerListDialog]
+ServerListHeaderState=\x00\x00\x00ˇ\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x028\x00\x00\x00\x03\x00\x01\x00\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00»ˇˇˇˇ\x00\x00\x00Å\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00d\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00»\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x01\x0c\x00\x00\x00\x01\x00\x00\x00\x00
+Size=683,307
