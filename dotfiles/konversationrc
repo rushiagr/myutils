@@ -1,0 +1,113 @@
+[$Version]
+update_info=konversation.upd:1.1-rememberline,konversation.upd:1.1-markerlines,konversation.upd:0.20-customfonts,konversation.upd:0.20-quickbuttons,konversation.upd:0.19-notifylists,konversation.upd:0.19-appearance,konversation.upd:0.19-browser,konversation.upd:0.19-flags,konversation.upd:0.19-highlightcolors,konversation.upd:0.19-osdcolors,konversation.upd:0.19-sortorder,konversation.upd:0.19-colors,konversation.upd:0.19-generaloptions,konversation.upd:0.19-cleanup-themes,konversation.upd:0.19-cleanup-notifylist,konversation.upd:0.19-cleanup-dcc,konversation.upd:0.19-cleanup-colors,konversation.upd:0.19-cleanup-hilightlist,konversation.upd:0.19-cleanup-notificationmessages,konversation.upd:0.19-cleanup-ledcolors,konversation.upd:0.19-cleanup-kmditaskbar,konversation.upd:0.19-channelsplitter
+
+[Aliases]
+AliasList=mail /exec mail,bug /exec bug,cmd /exec cmd,uptime /exec uptime,fortune /exec fortune,media /exec media,audio /exec media audio,video /exec media video,tinyurl /exec tinyurl,sayclip /exec sayclip,sysinfo /exec sysinfo,gauge /exec gauge
+
+[Appearance]
+ChannelSplitterSizes=1582,122
+ListFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+TabFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+TextFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+TopicSplitterSizes=24,971
+
+[Autoreplace List]
+Direction0=o
+Direction1=o
+Direction2=o
+Pattern0=\\[\\[([^\\s]+)\\]\\]#
+Pattern1=(BUG:|bug:)([0-9]+)#
+Pattern2=([Dd][Bb][Uu][Gg]:)(\\w+)#
+Regex0=1
+Regex1=1
+Regex2=1
+Replace0=http://en.wikipedia.org/wiki/Special:Search?go=Go&search=%1#
+Replace1=https://bugs.kde.org/show_bug.cgi?id=%2#
+Replace2=http://bugs.debian.org/%2#
+
+[Button List]
+Button0=Op,/OP %u%n
+Button1=DeOp,/DEOP %u%n
+Button2=WhoIs,/WHOIS %s,%%u%n
+Button3=Version,/CTCP %s,%%u VERSION%n
+Button4=Kick,/KICK %u%n
+Button5=Ban,/BAN %u%n
+Button6=Part,/PART %c Leaving...%n
+Button7=Quit,/QUIT Leaving...%n
+
+[DCC Settings]
+IPv4FallbackIface=0
+
+[Identity 0]
+AuthType=nickserv
+AutomaticAway=false
+AutomaticUnaway=false
+AwayInactivity=10
+AwayMessage=
+AwayNick=
+AwayReason=Gone away for now
+Bot=nickserv
+Codec=UTF-8
+Ident=r
+InsertRememberLineOnAway=false
+KickReason=User terminated!
+Name=Default Identity
+Nicknames=r,r_,r__
+NickservCommand=identify
+PartReason=Konversation terminated!
+Password=
+PemClientCertFile=
+PreShellCommand=
+QuitReason=Konversation terminated!
+Realname=Rushi Agrawal
+ReturnMessage=
+SaslAccount=
+ShowAwayMessage=false
+
+[MainWindow]
+Height 1080=1081
+State=AAAA/wAAAAD9AAAAAAAABz8AAAQKAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1920=1921
+
+[Notification Messages]
+ChannelListNoServerSelected=1
+ChannelListWarning=1
+ClearLogfileQuestion=1
+CloseQueryAfterIgnore=1
+HideMenuBarWarning=1
+HideOnCloseInfo=1
+IgnoreNick=1
+Invitation=0
+QuitChannelTab=1
+QuitDCCChatTab=1
+QuitQueryTab=1
+QuitServerTab=1
+QuitWithActiveDccTransfers=1
+ReconnectWithDifferentServer=1
+ReuseExistingConnection=1
+SaveLogfileNote=1
+UnignoreNick=1
+WarnEncodingConflict=1
+systemtrayquitKonversation=1
+
+[OSD]
+OSDFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+
+[Server 0]
+Password=rushiagr:__KONV_PASS__
+Port=9090
+SSLEnabled=true
+Server=furnace.firrre.com
+
+[ServerGroup 0]
+AutoConnect=true
+AutoJoinChannels=
+ChannelHistory=
+ConnectCommands=
+EnableNotifications=true
+Expanded=false
+Identity=Default Identity
+Name=a
+NotifyList=
+ServerList=Server 0
