@@ -7,7 +7,7 @@ function sedeasy {
 }
 
 CURR_FILE_PATH=$(readlink -f $0)
-MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | cut -d'/' -f-4)
+MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
 VPN_CONF_PATH=${MYUTILS_DIR_PATH}/etc/vpn.conf
 
 cat ${MYUTILS_DIR_PATH}/aliasrc.template ${MYUTILS_DIR_PATH}/aliases/* >  ~/.aliasrc
