@@ -1,8 +1,7 @@
 # Adjust screen brightness from CLI
 br() {
     if [[ -z $1 ]]; then
-        echo "usage: br VAL"
-        echo "  VAL is between 0.1 to 4.8. Integer values are also allowed"
+        echo "Current brightness is $(cat /sys/class/backlight/intel_backlight/brightness)."
         return
     fi
 
@@ -20,6 +19,7 @@ br() {
     else
         BRIGHT_VAL=$(echo ${1}000)
     fi
-    echo "Brightness set to $BRIGHT_VAL"
+    BRIGHT_VAL=$(echo $BRIGHT_VAL | sed -r s/^0*//)
     echo $BRIGHT_VAL | sudo tee /sys/class/backlight/intel_backlight/brightness >/dev/null;
+    echo "Brightness set to $BRIGHT_VAL"
 }
