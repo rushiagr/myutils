@@ -101,6 +101,10 @@ export VPN_CONF_PATH=__VPN_CONF_PATH__
 
 
 vpn () {
+    if [ ! -e ${VPN_CONF_PATH} ]; then
+        echo "No vpn.conf file found to fetch configuration from. Exiting.."
+        return
+    fi
     source $VPN_CONF_PATH
 
     IFS=","
