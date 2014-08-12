@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -e
 
 # Script which sets everthing up in a system
 
@@ -19,7 +19,23 @@ if [ $IS_BASHRC_EDITED -eq 0 ]; then
     echo "source ~/.aliasrc" >> ~/.bashrc
 fi
 
+DOTFILES=$(ls -a $MYUTILS_DIR_PATH/dotfiles | grep ^\\.[a-zA-Z])
+
+for DOTFILE in $DOTFILES; do
+    if [ -f ~/${DOTFILE} ]; then
+        if [ "${TEMPDIR}" == "" ]; then
+            TEMPDIR=$(mktemp -d)
+        fi
+        mv ~/$DOTFILE $TEMPDIR
+    fi
+    cp $MYUTILS_DIR_PATH/dotfiles/$DOTFILE ~
+done
+
 echo "Install successful."
 echo "Aliases will be sourced from the next new shell session. To source them in the current session, do"
 echo "    source ~/.aliasrc"
 
+if [ "${TEMPDIR}" != "" ]; then
+    echo -e "\nThe following existing dotfiles are moved to temp dir $TEMPDIR:"
+    echo $(ls -a $TEMPDIR | grep ^\\.[a-zA-Z])
+fi
