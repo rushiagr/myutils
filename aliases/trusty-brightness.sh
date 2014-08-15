@@ -5,7 +5,8 @@ br() {
         return
     fi
 
-    HAS_DOT=$(echo $1 | grep -c "\.") 
+    # All this circus to allow for decimal numbers as parameters, e.g. 1.2, .3
+    HAS_DOT=$(echo $1 | grep -c "\.")
     if [ $HAS_DOT -eq 1 ]; then
         BEFORE_DOT=$(echo $1 | cut -d'.' -f1)
         AFTER_DOT=$(echo $1 | cut -d'.' -f2)
@@ -20,6 +21,7 @@ br() {
         BRIGHT_VAL=$(echo ${1}000)
     fi
     BRIGHT_VAL=$(echo $BRIGHT_VAL | sed -r s/^0*//)
+
     echo $BRIGHT_VAL | sudo tee /sys/class/backlight/intel_backlight/brightness >/dev/null;
     echo "Brightness set to $BRIGHT_VAL"
 }
