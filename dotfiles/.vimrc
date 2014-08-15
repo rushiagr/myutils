@@ -17,4 +17,5 @@ set autoindent
 " Map jj in insert mode to escape key
 imap jj <Esc>
 
-
+" Break lines automatically at 79 characters
+set textwidth=79
