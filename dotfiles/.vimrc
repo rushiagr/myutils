@@ -14,7 +14,7 @@ filetype indent on
 " Indentation when working with plaintext files
 set autoindent
 
-" Map jj to escape key
+" Map jj in insert mode to escape key
 imap jj <Esc>
 
 
