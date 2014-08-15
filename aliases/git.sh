@@ -37,6 +37,11 @@ gcl() {
     git clone https://github.com/$1
 }
 
+# TODO: also switch on autocorrect and colour
+alias gitinit='\
+git config --global user.name "Rushi Agrawal"; \
+git config --global user.email rushi.agr@gmail.com'
+
 # All the git commands, blindly shortened
 alias glog='git log'
 alias gcommit='git commit'
