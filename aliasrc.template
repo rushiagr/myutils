@@ -37,44 +37,6 @@ git config --global user.email rushi.agr@gmail.com'
 # FS stands for 'fix screen'
 alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
 
-## All git aliases
-alias gcam='git commit -a -m'
-alias gcaa='git commit -a --amend'
-alias gpom='git push origin master'
-alias gpo='git push origin'
-alias gs='git status'
-alias gb='git branch'
-alias gl='git log'
-alias gr='git remote --verbose'
-alias gba='git branch --all'
-alias gpuom='git pull origin master'
-alias gitremove='git reset --soft HEAD^ && git reset --hard'
-gcl() {
-    if [[ -z $1 ]]; then
-        echo "usage: gc <github-user>/<repository>"
-        return
-    fi
-    git clone https://github.com/$1
-}
-alias gch='git checkout'
-alias gchb='git checkout -b'
-alias gd='git diff'
-alias gaa='git add --all'
-# X-series!
-gxc() {
-    echo "Experimental.."
-    if [[ -z $1 ]]; then
-        BRANCH=master
-    else
-        BRANCH=$1
-    fi
-    git add --all
-    git commit -a
-    git push origin $BRANCH
-}
-
-alias gdecorate='git log --oneline --graph --decorate --all'
-
 
 ### Tools to route internet to an interface. Might not work with wireless networks.
 
