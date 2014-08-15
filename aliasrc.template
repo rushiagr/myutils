@@ -21,23 +21,7 @@ alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
 ### Tools to route internet to an interface. Might not work with wireless networks.
 
 
-net-route() {
-    if [ -z $1 -o -z $2 ]; then
-        echo "  usage: net-route FROM-IF TO-IF"
-        kill -INT $$
-    fi
-    sudo iptables --append POSTROUTING --table nat --out-interface $1 --jump MASQUERADE
-    sudo iptables --append FORWARD --in-interface $2 --out-interface $1 --match state --state RELATED,ESTABLISHED --jump ACCEPT
-}
 
-net-unroute() {
-    if [ -z $1 -o -z $2 ]; then
-        echo "  usage: net-unroute FROM-IF TO-IF"
-        kill -INT $$
-    fi  
-    sudo iptables --delete POSTROUTING --table nat --out-interface $1 --jump MASQUERADE
-    sudo iptables --delete FORWARD --in-interface $2 --out-interface $1 --match state --state RELATED,ESTABLISHED --jump ACCEPT
-}
 
 export VPN_CONF_PATH=__VPN_CONF_PATH__
 
