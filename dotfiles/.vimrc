@@ -19,3 +19,6 @@ imap jj <Esc>
 
 " Break lines automatically at 79 characters
 set textwidth=79
+
+" Ignore case during text search
+set ignorecase
