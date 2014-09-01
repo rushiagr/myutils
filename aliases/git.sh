@@ -8,6 +8,8 @@ alias gd='git diff'
 
 alias grh='git reset --hard'
 alias grs='git reset --soft HEAD^'
+alias grco='git rebase --continue'
+alias grsk='git rebase --skip'
 
 alias gaa='git add --all'
 alias gcam='git commit -a -m'
