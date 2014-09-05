@@ -23,6 +23,8 @@ alias gchb='git checkout -b'
 
 alias gcx='git add --all && git commit -a -m'
 
+alias grv='git review -y -vvv'
+
 
 # Fancy ones
 
