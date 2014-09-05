@@ -1,0 +1,4 @@
+deb [arch=amd64] http://10.135.126.13/snapshots/latest/mirror/in.archive.ubuntu.com/ubuntu trusty main universe multiverse restricted
+deb [arch=amd64] http://10.135.126.13/snapshots/latest/mirror/in.archive.ubuntu.com/ubuntu trusty-updates main universe restricted multiverse
+deb [arch=amd64] http://10.135.126.13/snapshots/latest/mirror/security.ubuntu.com/ubuntu trusty-security main universe restricted
+
