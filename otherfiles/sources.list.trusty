@@ -37,10 +37,8 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-updates multiverse
 ## newer versions of some applications which may provide useful features.
 ## Also, please note that software in backports WILL NOT receive any review
 ## or updates from the Ubuntu security team.
-deb http://us.archive.ubuntu.com/ubuntu/ trusty-backports main restricted
-universe multiverse
-deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-backports main restricted
-universe multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse
 
 deb http://security.ubuntu.com/ubuntu trusty-security main restricted
 deb-src http://security.ubuntu.com/ubuntu trusty-security main restricted
