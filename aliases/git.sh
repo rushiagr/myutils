@@ -18,7 +18,7 @@ alias gpo='git push origin'
 alias gpom='git push origin master'
 alias gpuom='git pull origin master'
 
-alias gpomd='git push origin master & >/dev/null 2>&1'
+alias gpomd='git push origin master >/dev/null 2>&1 &'
 
 alias gch='git checkout'
 alias gchb='git checkout -b'
