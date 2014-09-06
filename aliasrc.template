@@ -86,8 +86,3 @@ vpn2 () {
         echo "Seems a VPN connection is already established. Exiting.."
     fi
 }
-
-
-export EDITOR=/usr/bin/vim
-export VIMRUNTIME=/usr/bin
-export VISUAL=/usr/bin/vim
