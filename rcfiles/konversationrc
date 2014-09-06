@@ -5,11 +5,15 @@ update_info=konversation.upd:1.1-rememberline,konversation.upd:1.1-markerlines,k
 AliasList=gauge /exec gauge,sysinfo /exec sysinfo,sayclip /exec sayclip,tinyurl /exec tinyurl,video /exec media video,audio /exec media audio,media /exec media,fortune /exec fortune,uptime /exec uptime,cmd /exec cmd,bug /exec bug,mail /exec mail
 
 [Appearance]
-ChannelSplitterSizes=1582,122
-ListFont=Sans Serif,9,-1,5,50,0,0,0,0,0
-TabFont=Sans Serif,9,-1,5,50,0,0,0,0,0
-TextFont=Sans Serif,9,-1,5,50,0,0,0,0,0
-TopicSplitterSizes=24,971
+ChannelSplitterSizes=845,169
+CustomListFont=true
+CustomTabFont=true
+CustomTextFont=true
+ListFont=Sans Serif,12,-1,5,50,0,0,0,0,0
+TabFont=Sans Serif,14,-1,5,50,0,0,0,0,0
+TextFont=Sans Serif,15,-1,5,50,0,0,0,0,0
+TopicSplitterSizes=27,649
+TreeSplitterSizes=275,1085
 
 [Autoreplace List]
 Direction0=o
@@ -45,6 +49,41 @@ EnableNotifications=true
 Name=#openstack-cinder
 Password=
 
+[Channel 10]
+EnableNotifications=true
+Name=#tripleo
+Password=
+
+[Channel 11]
+EnableNotifications=true
+Name=#openstack-meeting
+Password=
+
+[Channel 12]
+EnableNotifications=true
+Name=#openstack-manila
+Password=
+
+[Channel 13]
+EnableNotifications=true
+Name=#openstack-ironic
+Password=
+
+[Channel 14]
+EnableNotifications=true
+Name=#openstack-meeting-alt
+Password=
+
+[Channel 15]
+EnableNotifications=true
+Name=#openstack-meeting-alt-2
+Password=
+
+[Channel 16]
+EnableNotifications=true
+Name=#openstack-meeting-2
+Password=
+
 [Channel 2]
 EnableNotifications=true
 Name=#openstack-dev
@@ -75,11 +114,24 @@ EnableNotifications=true
 Name=#kubuntu
 Password=
 
+[Channel 8]
+EnableNotifications=true
+Name=#openstack-keystone
+Password=
+
+[Channel 9]
+EnableNotifications=true
+Name=#openstack-tripleo
+Password=
+
 [DCC Settings]
 IPv4FallbackIface=0
-PanelSplitter=AAAA/wAAAAAAAAAC//////////8BAAAABgEAAAAC
+PanelSplitter=AAAA/wAAAAAAAAACAAAATgAAARYBAAAABgEAAAAC
 
 [Flags]
+HideUnimportantEvents=true
+HideUnimportantEventsExcludeActive=true
+HideUnimportantEventsExcludeActiveThreshold=3
 TabPlacement=Left
 
 [Identity 0]
@@ -108,10 +160,18 @@ ReturnMessage=
 SaslAccount=
 ShowAwayMessage=false
 
+[KFileDialog Settings]
+Height 768=510
+Recent Files[$e]=/usr/share/sounds/KDE-Im-Contact-In.ogg,/usr/share/sounds/KDE-Im-Message-In.ogg,/usr/share/sounds/KDE-Im-Highlight-Msg.ogg
+Recent URLs[$e]=/usr/share/sounds/
+Width 1366=816
+
 [MainWindow]
 Height 1080=1081
-State=AAAA/wAAAAD9AAAAAAAABz8AAAQKAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+Height 768=716
+State=AAAA/wAAAAD9AAAAAAAABRUAAAK2AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
+Width 1366=1301
 Width 1920=1921
 
 [Notification Messages]
@@ -147,7 +207,7 @@ Server=furnace.firrre.com
 [ServerGroup 0]
 AutoConnect=true
 AutoJoinChannels=
-ChannelHistory=Channel 0,Channel 1,Channel 2,Channel 3,Channel 4,Channel 5,Channel 6,Channel 7
+ChannelHistory=Channel 0,Channel 1,Channel 2,Channel 3,Channel 4,Channel 5,Channel 6,Channel 7,Channel 8,Channel 9,Channel 10,Channel 11,Channel 12,Channel 13,Channel 14,Channel 15,Channel 16
 ConnectCommands=
 EnableNotifications=true
 Expanded=false
