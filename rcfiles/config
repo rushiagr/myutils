@@ -1,14 +1,18 @@
 [global_config]
   inactive_color_offset = 1.0
 [keybindings]
+  move_tab_right = <Primary><Shift>Page_Down
+  next_tab = <Primary>period
+  move_tab_left = <Primary><Shift>Page_Up
+  prev_tab = <Primary>comma
 [profiles]
   [[default]]
     use_system_font = False
     background_image = None
-    foreground_color = "#657b83"
+    foreground_color = "#000000"
     show_titlebar = False
-    font = Monospace 20
-    background_color = "#fdf6e3"
+    font = Monospace 16
+    background_color = "#ffffff"
     scrollback_infinite = True
 [layouts]
   [[default]]
