@@ -15,5 +15,5 @@ alias cddd='cd ../..'
 alias cdddd='cd ../../..'
 alias cddddd='cd ../../../..'
 function pingbg() {
-  ping -i 60 $1 >/dev/null 2>&1 &;
+  ping -i 60 $1 >/dev/null 2>&1 &
 }
