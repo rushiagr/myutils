@@ -22,6 +22,7 @@ alias gpomd='git push origin master >/dev/null 2>&1 &'
 
 alias gch='git checkout'
 alias gchb='git checkout -b'
+alias gchm='git checkout master'
 
 alias gcx='git add --all && git commit -a -m'
 
