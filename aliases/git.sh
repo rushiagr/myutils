@@ -2,6 +2,7 @@
 alias gs='git status'
 alias gb='git branch'
 alias gba='git branch --all'
+alias gbd='git branch -D'
 alias gl='git log'
 alias gr='git remote --verbose'
 alias gd='git diff'
