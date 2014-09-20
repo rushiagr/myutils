@@ -5,6 +5,7 @@ alias gba='git branch --all'
 alias gbd='git branch -D'
 alias gl='git log'
 alias gr='git remote --verbose'
+alias gru='git remote update'
 alias gd='git diff'
 
 alias grh='git reset --hard'
