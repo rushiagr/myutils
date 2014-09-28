@@ -1,9 +1,5 @@
 alias dpg='dpkg -l | grep'
 
-zresolvconf() {
-    echo "nameserver 127.0.1.1" | sudo tee /etc/resolv.conf
-}
-
 # FS stands for 'fix screen'
 alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
 

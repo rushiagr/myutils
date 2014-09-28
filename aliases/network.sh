@@ -32,3 +32,7 @@ net-unroute() {
     sudo iptables --delete POSTROUTING --table nat --out-interface $1 --jump MASQUERADE
     sudo iptables --delete FORWARD --in-interface $2 --out-interface $1 --match state --state RELATED,ESTABLISHED --jump ACCEPT
 }
+
+zresolvconf() {
+    echo "nameserver 127.0.1.1" | sudo tee /etc/resolv.conf
+}
