@@ -17,3 +17,4 @@ alias cddddd='cd ../../../..'
 function pingbg() {
   ping -i 60 $1 >/dev/null 2>&1 &
 }
+alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'

@@ -11,3 +11,4 @@ alias auy='sudo apt-get update --assume-yes'
 alias aiy='sudo apt-get install --assume-yes'
 alias audy='sudo apt-get update --assume-yes && sudo apt-get dist-upgrade --assume-yes'
 
+alias dpg='dpkg -l | grep'

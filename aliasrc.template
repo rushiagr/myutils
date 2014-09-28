@@ -1,16 +1,4 @@
-alias dpg='dpkg -l | grep'
-
-# FS stands for 'fix screen'
-alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
-
-
-### Tools to route internet to an interface. Might not work with wireless networks.
-
-
-
-
 export VPN_CONF_PATH=__VPN_CONF_PATH__
-
 
 vpn () {
     if [ ! -e ${VPN_CONF_PATH} ]; then
