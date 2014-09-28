@@ -10,7 +10,7 @@ CURR_FILE_PATH=$(readlink -f $0)
 MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
 VPN_CONF_PATH=${MYUTILS_DIR_PATH}/etc/vpn.conf
 
-cat ${MYUTILS_DIR_PATH}/aliasrc.template ${MYUTILS_DIR_PATH}/aliases/* >  ~/.aliasrc
+cat ${MYUTILS_DIR_PATH}/aliases/* >  ~/.aliasrc
 sedeasy "__VPN_CONF_PATH__" $VPN_CONF_PATH ~/.aliasrc
 
 export IS_BASHRC_EDITED=$(cat ~/.bashrc | grep -c "source ~/.aliasrc")

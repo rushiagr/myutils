@@ -9,7 +9,7 @@ vpn () {
 
     IFS=","
 
-    if [ $# -eq 0 ]
+    if [ $# -eq 0 ] 
     then
         echo "usage: vpn.sh [h|o]"
         echo "   o stands for office, h for home"
