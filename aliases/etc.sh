@@ -22,3 +22,5 @@ alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
 function aw() {
     awk "{print \$${1:-1}}" $2;
 }
+
+alias unsetproxy='unset http_proxy https_proxy no_proxy'
