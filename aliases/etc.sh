@@ -24,3 +24,4 @@ function aw() {
 }
 
 alias venv='source ~/src/venvs/main/bin/activate'
+alias quit='exit'
