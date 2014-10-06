@@ -23,4 +23,4 @@ function aw() {
     awk "{print \$${1:-1}}" $2;
 }
 
-alias unsetproxy='unset http_proxy https_proxy no_proxy'
+alias unproxy='unset http_proxy https_proxy no_proxy'
