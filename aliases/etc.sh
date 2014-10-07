@@ -27,3 +27,4 @@ function aw() {
 
 alias venv='source ~/src/venvs/main/bin/activate'
 alias quit='exit'
+alias unproxy='unset http_proxy https_proxy no_proxy'
