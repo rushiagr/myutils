@@ -14,6 +14,8 @@ alias cdd='cd ..'
 alias cddd='cd ../..'
 alias cdddd='cd ../../..'
 alias cddddd='cd ../../../..'
+alias cds='cd ~/src'
+alias cdn='cd ~/notes'
 function pingbg() {
   ping -i 60 $1 >/dev/null 2>&1 &
 }
