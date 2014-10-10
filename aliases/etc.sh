@@ -28,3 +28,5 @@ function aw() {
 alias venv='source ~/src/venvs/main/bin/activate'
 alias quit='exit'
 alias unproxy='unset http_proxy https_proxy no_proxy'
+alias d='date'
+alias ud='TZ=UTC date' # UTC date
