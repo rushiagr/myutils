@@ -22,3 +22,10 @@ set textwidth=79
 
 " Round off indent to multiple of 'shiftwidth' value
 set shiftround
+
+" Using this will change the current VIM directory to the location of the
+" opened file. This is useful for working with tags. Note: tags can work
+" without this option too, but you'll need to use './' before the tag file name
+set autochdir
+
+set tags=tags;
