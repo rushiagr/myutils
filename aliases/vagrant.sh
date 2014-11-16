@@ -9,6 +9,7 @@ alias vh='vagrant halt'
 alias vsuspend='vagrant suspend'
 
 alias vr='vagrant reload'
+alias vreload='vagrant reload'
 
 alias vstatus='vagrant status'
 alias vst='vagrant status'
