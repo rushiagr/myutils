@@ -16,3 +16,5 @@ alias vst='vagrant status'
 
 alias vd='vagrant destroy'
 alias vdestroy='vagrant destroy'
+
+alias vus='vagrant up && vagrant ssh'
