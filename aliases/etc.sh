@@ -10,13 +10,18 @@ alias fr='free -h'
 alias ssh='ssh -X' 
 alias wchere='cat $(find .) 2>/dev/null | wc'
 alias eg='env | grep -i'
+
 alias cdd='cd ..'
 alias cddd='cd ../..'
 alias cdddd='cd ../../..'
 alias cddddd='cd ../../../..'
+alias cdddddd='cd ../../../../..'
+alias cddddddd='cd ../../../../../..'
+
 alias cds='cd ~/src'
 alias cdn='cd ~/notes'
 alias cdv='cd ~/vagrant'
+
 function pingbg() {
   ping -i 60 $1 >/dev/null 2>&1 &
 }
