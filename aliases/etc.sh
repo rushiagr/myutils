@@ -38,3 +38,7 @@ alias quit='exit'
 alias unproxy='unset http_proxy https_proxy no_proxy'
 alias d='date'
 alias ud='TZ=UTC date' # UTC date
+
+# 'S'ou'R'ce aliasrc. Useful only while sourcing updated aliasrc. Won't be
+# available for sourcing for the first time obviously
+alias sr='source ~/.aliasrc'
