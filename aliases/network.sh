@@ -36,3 +36,7 @@ net-unroute() {
 zresolvconf() {
     echo "nameserver 127.0.1.1" | sudo tee /etc/resolv.conf
 }
+
+function ifud() {
+    sudo ifdown $1 && sudo ifup $1
+}
