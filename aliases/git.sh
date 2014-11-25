@@ -44,6 +44,15 @@ gcl() {
         return
     fi
     git clone https://github.com/$1
+    repo_name=$(echo $1 | cut -d '/' -f2)
+    cd $repo_name
+    git remote remove origin
+    if [[ -z $2 ]]; then
+        git remote add origin https://rushiagr@github.com/$1
+    else
+        git remote add origin https://rushiagr:$2@github.com/$1
+    fi
+    cd ..
 }
 
 alias gitinit='\
