@@ -6,6 +6,8 @@ alias duh='du -sch'
 alias psg='ps aux | grep -i'
 alias gi='grep -i' 
 alias gri='grep -rinI --color=always'
+# Grep no-ignore-case
+alias grin='grep -rnI --color=always'
 alias fr='free -h'
 alias ssh='ssh -X' 
 alias wchere='cat $(find .) 2>/dev/null | wc'
