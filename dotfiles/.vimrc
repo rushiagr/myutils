@@ -29,3 +29,11 @@ set shiftround
 set autochdir
 
 set tags=tags;
+
+" Incremental search. Highlights FIRST matching string as you type.
+set incsearch
+
+" Highlight search. After you type your search, when you press enter, it will
+" highlight ALL matching strings. Note that it won't highlight matching strings
+" as you type, but only when you press enter after you're done typing.
+set hlsearch
