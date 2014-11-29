@@ -84,3 +84,13 @@ alias greset='git reset'
 alias gremote='git remote'
 alias gadd='git add'
 alias greview='git review'
+
+
+function grar() {
+  currdir=$(pwd | rev | cut -d '/' -f 1 | rev)
+  git remote add rushiagr https://rushiagr@github.com/rushiagr/$currdir
+}
+
+function grur() {
+  git remote update rushiagr
+}
