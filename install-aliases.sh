@@ -28,7 +28,7 @@ for DOTFILE in $DOTFILES; do
         fi
         mv ~/$DOTFILE $TEMPDIR
     fi
-    cp $MYUTILS_DIR_PATH/dotfiles/$DOTFILE ~
+    cp --recursive $MYUTILS_DIR_PATH/dotfiles/$DOTFILE ~
 done
 
 echo "Install successful."
