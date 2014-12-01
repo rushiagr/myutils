@@ -44,6 +44,15 @@ gcl() {
         return
     fi
     git clone https://github.com/$1
+    repo_name=$(echo $1 | cut -d '/' -f2)
+    cd $repo_name
+    git remote remove origin
+    if [[ -z $2 ]]; then
+        git remote add origin https://rushiagr@github.com/$1
+    else
+        git remote add origin https://rushiagr:$2@github.com/$1
+    fi
+    cd ..
 }
 
 alias gitinit='\
@@ -75,3 +84,13 @@ alias greset='git reset'
 alias gremote='git remote'
 alias gadd='git add'
 alias greview='git review'
+
+
+function grar() {
+  currdir=$(pwd | rev | cut -d '/' -f 1 | rev)
+  git remote add rushiagr https://rushiagr@github.com/rushiagr/$currdir
+}
+
+function grur() {
+  git remote update rushiagr
+}

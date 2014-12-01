@@ -22,3 +22,18 @@ set textwidth=79
 
 " Round off indent to multiple of 'shiftwidth' value
 set shiftround
+
+" Using this will change the current VIM directory to the location of the
+" opened file. This is useful for working with tags. Note: tags can work
+" without this option too, but you'll need to use './' before the tag file name
+set autochdir
+
+set tags=tags;
+
+" Incremental search. Highlights FIRST matching string as you type.
+set incsearch
+
+" Highlight search. After you type your search, when you press enter, it will
+" highlight ALL matching strings. Note that it won't highlight matching strings
+" as you type, but only when you press enter after you're done typing.
+set hlsearch
