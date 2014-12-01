@@ -9,7 +9,15 @@ set softtabstop=4
 " Enable indentation for Python files. After this, the above tab-space
 " thing is not required for Python files, but is still required for
 " files with different extensions than .py
-filetype indent on
+"
+" Another note: if you write 'filetype on', it means the filetype detection
+" plugin is 'on'. If you write 'filetype indent on', it means the filetype
+" indent plugin is loaded, which also loads 'filetype' plugin (like when adding
+" 'filetype on' to .vimrc).
+"
+" Note: this is commented out here, so that it should work well with pathogen,
+" and the filetype indentation detection is added later again.
+"" filetype indent on
 
 " Indentation when working with plaintext files
 set autoindent
@@ -37,3 +45,7 @@ set incsearch
 " highlight ALL matching strings. Note that it won't highlight matching strings
 " as you type, but only when you press enter after you're done typing.
 set hlsearch
+
+execute pathogen#infect()
+filetype off
+syntax on
