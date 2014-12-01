@@ -49,3 +49,35 @@ set hlsearch
 execute pathogen#infect()
 filetype off
 syntax on
+
+" The fillowing line means:
+" 1. Filetype detection is on
+" 2. Detecting and loading plugins for specific filetypes is on
+" 3. Indentation detection for specific filetypes is on too
+" Pathogen has some problem if this file is included before calling infect(),
+" so adding after that.
+filetype plugin indent on
+
+
+" Allow folding of text. Python syntax is indent based, so make Vim detect
+" folds based on indentation level. If only this line is set, all folds will
+" start closed (value of 'foldlevel' is 0). To open/close fold, type'za'.
+set foldmethod=indent
+
+" The indentation level upto which lines are folded when you open the file.
+" By default it is 0 (all folds closed). Value of 1 means in object-oriented
+" Python code, upto class method definitions is shown. If
+" this is changed to 'foldlevel=99', files will open without any folding
+" already in place.
+set foldlevel=1
+
+" Maximum indentation depth upto which code is folded. If you use classes in
+" Python, '2' means code will be folded at class level, and method level.
+" Once you unfold a method, further indents (e.g. a 'for' loop) won't be folded
+set foldnestmax=2
+
+" These two settings work well if you want to start with folded code. If you
+" prefer to start with unfolded code, these two lines will work best.
+" (foldnestmax defaults to 20).
+" set foldlevel=99
+" set foldnestmax=20
