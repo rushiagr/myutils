@@ -85,12 +85,12 @@ alias gremote='git remote'
 alias gadd='git add'
 alias greview='git review'
 
-
+# My remote operations
 function grar() {
   currdir=$(pwd | rev | cut -d '/' -f 1 | rev)
   git remote add rushiagr https://rushiagr@github.com/rushiagr/$currdir
 }
 
-function grur() {
-  git remote update rushiagr
-}
+alias grur='git remote update rushiagr'
+alias gprm='git push rushiagr master'
+alias gpurm='git pull rushiagr master'

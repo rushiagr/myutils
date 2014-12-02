@@ -81,3 +81,6 @@ set foldnestmax=2
 " (foldnestmax defaults to 20).
 " set foldlevel=99
 " set foldnestmax=20
+
+" Switch on syntax highlighting for Vagrantfile files
+au BufNewFile,BufRead Vagrantfile set filetype=ruby
