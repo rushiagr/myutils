@@ -84,3 +84,6 @@ set foldnestmax=2
 
 " Switch on syntax highlighting for Vagrantfile files
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
+
+
+map /  <Plug>(incsearch-forward)
