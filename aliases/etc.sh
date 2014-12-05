@@ -45,3 +45,7 @@ alias ud='TZ=UTC date' # UTC date
 # 'S'ou'R'ce aliasrc. Useful only while sourcing updated aliasrc. Won't be
 # available for sourcing for the first time obviously
 alias sr='source ~/.aliasrc'
+
+# C-w to erase upto last '/' character, and not till last whitespace
+stty werase undef
+bind '\C-w:unix-filename-rubout'
