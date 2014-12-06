@@ -49,3 +49,5 @@ alias sr='source ~/.aliasrc'
 # C-w to erase upto last '/' character, and not till last whitespace
 stty werase undef
 bind '\C-w:unix-filename-rubout'
+
+alias cdl='cd -'
