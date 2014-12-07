@@ -15,6 +15,7 @@ alias grsk='git rebase --skip'
 
 alias gaa='git add --all'
 alias gcam='git commit -a -m'
+alias gcm='git commit -m'
 alias gcaa='git commit -a --amend'
 alias gpo='git push origin'
 alias gpom='git push origin master'
