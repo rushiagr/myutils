@@ -1,0 +1,1 @@
+aid=$(keystone tenant-list | grep "\ admin\ " | awk '{print $2}')
