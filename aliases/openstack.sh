@@ -11,5 +11,6 @@ alias hsd='heat stack-delete'
 alias hsu='heat stack-update'
 
 function osdetails() {
-    export uid=$(keystone token-get | grep user_id | awk '{print $1}')
+    export uid=$(keystone token-get | grep user_id | awk '{print $4}')
+    export tid=$(keystone token-get | grep tenant_id | awk '{print $4}')
 }
