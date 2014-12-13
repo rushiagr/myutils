@@ -9,3 +9,7 @@ alias hsl='heat stack-list'
 alias hsc='heat stack-create'
 alias hsd='heat stack-delete'
 alias hsu='heat stack-update'
+
+function osdetails() {
+    export uid=$(keystone token-get | grep user_id | awk '{print $1}')
+}
