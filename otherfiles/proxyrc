@@ -1,0 +1,4 @@
+export http_proxy=http://10.135.121.138:3128
+export https_proxy=http://10.135.121.138:3128
+export no_proxy=127.0.0.1,169.254.169.254,localhost,consul,jiocloud.com
+
