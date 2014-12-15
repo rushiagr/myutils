@@ -51,3 +51,5 @@ stty werase undef
 bind '\C-w:unix-filename-rubout'
 
 alias cdl='cd -'
+
+alias vv='vim Vagrantfile'
