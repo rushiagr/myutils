@@ -40,3 +40,6 @@ zresolvconf() {
 function ifud() {
     sudo ifdown $1 && sudo ifup $1
 }
+
+alias ips='sudo iptables -S'
+alias ipstn='sudo iptables -S -t nat'
