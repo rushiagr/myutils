@@ -16,6 +16,8 @@ function portroute-del() {
 # remove the forwarding
 
 net-route() {
+    # TODO(rushiagr): enable sysctl ipv4 forwarding rule automatically if it is
+    # not present
     if [ -z $1 -o -z $2 ]; then
         echo "  usage: net-route FROM-IF TO-IF"
         kill -INT $$
