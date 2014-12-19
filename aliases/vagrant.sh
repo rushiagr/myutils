@@ -18,7 +18,10 @@ alias vd='vagrant destroy'
 alias vdestroy='vagrant destroy'
 alias vdf='vagrant destroy -f'
 
-alias vus='vagrant up && vagrant ssh'
-
 alias vp='vagrant provision'
 alias vrvp='vagrant reload && vagrant provision'
+
+function vus() {
+    vagrant up $1
+    vagrant ssh $1
+}
