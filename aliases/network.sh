@@ -40,6 +40,14 @@ zresolvconf() {
 }
 
 function ifud() {
+    if [ -z $1 ]; then
+        ETH_IFS=$(ifconfig | grep ^eth | awk '{print $1}')
+        for i in $ETH_IFS; do
+            sudo ifdown $i
+            sudo ifup $i
+        done
+        return
+    fi
     sudo ifdown $1 && sudo ifup $1
 }
 
