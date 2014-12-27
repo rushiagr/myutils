@@ -3,7 +3,7 @@ alias ll='ls -alh --group-directories-first'
 alias rmf='sudo rm -rf'
 alias dfh='df -h' 
 alias duh='du -sch'
-alias psg='ps aux | grep -i'
+alias psg='ps aux | grep -i --color=always'
 alias gi='grep -i' 
 alias gri='grep -rinI --color=always'
 # Grep no-ignore-case
