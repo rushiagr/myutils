@@ -87,3 +87,18 @@ au BufNewFile,BufRead Vagrantfile set filetype=ruby
 
 
 map /  <Plug>(incsearch-forward)
+
+" Flake8 mappings
+
+" Shows a marker in the file, where there is an error
+let g:flake8_show_in_file=1
+
+" Shows the marker for erring line in the gutter (before line number)
+let g:flake8_show_in_gutter=1
+
+" Open quickfix window. This is 1 by default. Left here if need to change in
+" future
+let g:flake8_show_quickfix=1
+
+" Run flake8 every time while saving the file
+autocmd BufWritePost *.py call Flake8()
