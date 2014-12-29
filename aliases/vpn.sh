@@ -23,4 +23,5 @@ vpn () {
     else
         echo "Seems a VPN connection is already established. Exiting.."
     fi
+    unset IFS
 }
