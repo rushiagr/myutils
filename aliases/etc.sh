@@ -53,3 +53,4 @@ bind '\C-w:unix-filename-rubout'
 alias cdl='cd -'
 
 alias vv='vim Vagrantfile'
+alias vim='vim -T xterm-256color'
