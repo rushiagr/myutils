@@ -1,16 +1,18 @@
+alias tmux='TERM=xterm-256color tmux'
+
 function mx() {
     if [ -z $1]; then
-        tmux
+        TERM=xterm-256color tmux
     else
-        tmux new -s $1
+        TERM=xterm-256color tmux new -s $1
     fi
 }
 
 function mxa() {
     if [ -z $1 ]; then
-        tmux attach
+        TERM=xterm-256color tmux attach
     else
-        tmux attach -t $1
+        TERM=xterm-256color tmux attach -t $1
     fi
 }
 
