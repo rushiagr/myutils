@@ -9,7 +9,17 @@ function mx() {
 }
 
 function mxa() {
-    if [ -z $1 ]; then
+# Shortcut for 'tmux attach'. If an argument is provided, it attaches to that
+# specific session name. If no tmux server is running, it creates one. If an
+# argument is provided and no tmux session exists, a new session is created
+# with this name
+    if [ -z $(ps aux | grep \ Ss\ | grep tmux) ]; then
+        if [ -z $1 ]; then
+            tmux
+        else
+            tmux new -s $1
+        fi
+    elif [ -z $1 ]; then
         tmux attach
     else
         tmux attach -t $1
