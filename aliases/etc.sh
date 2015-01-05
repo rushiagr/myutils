@@ -53,4 +53,5 @@ bind '\C-w:unix-filename-rubout'
 alias cdl='cd -'
 
 alias vv='vim Vagrantfile'
-alias vim='vim -T xterm-256color'
+
+alias vim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; vim'
