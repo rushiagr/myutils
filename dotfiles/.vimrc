@@ -102,3 +102,15 @@ let g:flake8_show_quickfix=1
 
 " Run flake8 every time while saving the file
 autocmd BufWritePost *.py call Flake8()
+
+
+"The following lines do this:
+"Highlight trailing whitespace in red
+"Have this highlighting not appear whilst you are typing in insert mode
+"Have the highlighting of whitespace apply when you open new buffers
+highlight ExtraWhitespace ctermbg=161 guibg=161
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
