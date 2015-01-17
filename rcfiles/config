@@ -9,11 +9,14 @@
   [[default]]
     use_system_font = False
     background_image = None
-    foreground_color = "#000000"
+    foreground_color = "#d8dce4"
     show_titlebar = False
     font = Monospace 16
-    background_color = "#ffffff"
+    background_color = "#002b36"
     scrollback_infinite = True
+  [[rushi]]
+    background_color = "#002b36"
+    foreground_color = "#c4d6d8"
 [layouts]
   [[default]]
     [[[child1]]]
