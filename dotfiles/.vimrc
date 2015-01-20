@@ -114,3 +114,13 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" Use my own colorscheme
+colorscheme pygun
+
+" Now pressing "sa" will copy the whole file to clipboard
+nnoremap sa gg"+yG
+
+" Allows copying and pasting to and from VIM to system's clipboard. Note that
+" this doesn't work over an SSH connection
+set clipboard=unnamed
