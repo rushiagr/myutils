@@ -53,3 +53,26 @@ function ifud() {
 
 alias ips='sudo iptables -S'
 alias ipstn='sudo iptables -S -t nat'
+
+function setproxy() {
+    if [ -z $1 ]; then
+        echo "Usage: setproxy <IP>"
+        return
+    fi
+    export http_proxy=http://$1:3128
+    export https_proxy=https://$1:3128
+
+    NO_PROXY=localhost,127.0.0.1
+    ETH_INTERFACES=$(ifconfig | grep ^eth | cut -d ' ' -f 1)
+    for IF in $ETH_INTERFACES; do
+        LOCAL_ETH_IP=$(ifconfig $IF | head -2 | tail -1 | grep "inet addr" \
+            | cut -d ':' -f 2 | cut -d ' ' -f 1)
+        if [ -z $LOCAL_ETH_IP ]; then
+            continue
+        else
+            NO_PROXY+=,$LOCAL_ETH_IP
+        fi
+    done
+    echo $NO_PROXY is no proxy
+    export no_proxy=$NO_PROXY
+}
