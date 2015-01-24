@@ -1,4 +1,4 @@
-#! /bin/bash -eux
+#! /bin/bash -ux
 
 cd ~/.vim/bundle
 git clone https://github.com/haya14busa/incsearch.vim
