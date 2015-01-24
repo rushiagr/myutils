@@ -55,3 +55,5 @@ alias cdl='cd -'
 alias vv='vim Vagrantfile'
 
 alias vim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; vim'
+
+alias pms='sudo pm-suspend-hybrid'
