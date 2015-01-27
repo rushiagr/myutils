@@ -14,6 +14,7 @@ alias grco='git rebase --continue'
 alias grsk='git rebase --skip'
 alias grim='git rebase -i master'
 
+alias gc='git commit'
 alias gaa='git add --all'
 alias gcam='git commit -a -m'
 alias gcm='git commit -m'
