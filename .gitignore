@@ -1,3 +1,6 @@
 etc/vpn.conf
 dotfiles/.vim/.netrwhist
 dotfiles/.vim/bundle/*
+
+dotfiles/.vim/colors/*
+!dotfiles/.vim/colors/pygun.vim
