@@ -98,6 +98,7 @@ function grar() {
     # TODO(rushiagr): try to get repository name by an already existing remote
     REPONAME=$(pwd | rev | cut -d '/' -f 1 | rev)
     git remote add rushiagr https://rushiagr$GIT_PASS@github.com/rushiagr/$REPONAME
+    unset GIT_PASS REPONAME
 }
 
 alias grur='git remote update rushiagr'
