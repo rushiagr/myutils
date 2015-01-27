@@ -90,8 +90,13 @@ alias greview='git review'
 
 # My remote operations
 function grar() {
-  currdir=$(pwd | rev | cut -d '/' -f 1 | rev)
-  git remote add rushiagr https://rushiagr@github.com/rushiagr/$currdir
+    if [ ! -z "$1" ]; then
+        GIT_PASS=":$1"
+    fi
+
+    # TODO(rushiagr): try to get repository name by an already existing remote
+    REPONAME=$(pwd | rev | cut -d '/' -f 1 | rev)
+    git remote add rushiagr https://rushiagr$GIT_PASS@github.com/rushiagr/$REPONAME
 }
 
 alias grur='git remote update rushiagr'
