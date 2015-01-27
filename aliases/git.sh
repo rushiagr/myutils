@@ -40,6 +40,7 @@ alias grv='git review -y -vvv'
 alias gitremove='git reset --soft HEAD^ && git reset --hard'
 
 alias gdecorate='git log --oneline --graph --decorate --all'
+alias gde='git log --oneline --graph --decorate --all'
 
 gcl() {
     if [[ -z $1 ]]; then
