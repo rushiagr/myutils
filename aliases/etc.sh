@@ -1,15 +1,15 @@
 alias fig='find . | grep --color=always'
 alias ll='ls -alh --group-directories-first'
 alias rmf='sudo rm -rf'
-alias dfh='df -h' 
+alias dfh='df -h'
 alias duh='du -sch'
 alias psg='ps aux | grep -i --color=always'
-alias gi='grep -i' 
+alias gi='grep -i'
 alias gri='grep -rinI --color=always'
 # Grep no-ignore-case
 alias grin='grep -rnI --color=always'
 alias fr='free -h'
-alias ssh='ssh -X' 
+alias ssh='ssh -X'
 alias wchere='cat $(find .) 2>/dev/null | wc'
 alias eg='env | grep -i'
 alias egp='env | grep proxy'
@@ -53,7 +53,9 @@ bind '\C-w:unix-filename-rubout'
 alias cdl='cd -'
 
 alias vv='vim Vagrantfile'
-
 alias vim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; vim'
+alias svim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; sudo vim'
+alias sv='svim'
+
 
 alias pms='sudo pm-suspend-hybrid'
