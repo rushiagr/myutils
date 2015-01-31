@@ -122,5 +122,5 @@ colorscheme pygun
 nnoremap sa gg"+yG
 
 " Allows copying and pasting to and from VIM to system's clipboard. Note that
-" this doesn't work over an SSH connection
-set clipboard=unnamed
+" this doesn't work over an SSH connection.
+set clipboard=unnamedplus
