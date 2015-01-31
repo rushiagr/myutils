@@ -71,7 +71,7 @@ git config --global core.excludesfile ~/.gitignore_global;'
 # All the git commands, blindly shortened
 alias glog='git log'
 alias gcommit='git commit'
-alias gshow='git show'
+alias gsh='git show'
 alias gdiff='git diff'
 alias gpush='git push'
 alias gpull='git pull'
