@@ -59,3 +59,5 @@ alias sv='svim'
 
 
 alias pms='sudo pm-suspend-hybrid'
+
+alias pig='ping google.com'
