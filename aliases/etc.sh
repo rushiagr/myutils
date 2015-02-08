@@ -58,6 +58,6 @@ alias svim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; sudo v
 alias sv='svim'
 
 
-alias pms='sudo pm-suspend-hybrid'
+alias pp='sudo pm-suspend-hybrid'
 
 alias pig='ping google.com'
