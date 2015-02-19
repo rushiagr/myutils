@@ -101,7 +101,7 @@ let g:flake8_show_in_gutter=1
 let g:flake8_show_quickfix=1
 
 " Run flake8 every time while saving the file
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 
 "The following lines do this:
