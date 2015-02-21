@@ -11,3 +11,7 @@ Vim plugins Github links:
 * https://github.com/tomtom/tlib_vim
 * https://github.com/MarcWeber/vim-addon-mw-utils
 * https://github.com/garbas/vim-snipmate
+
+
+Extra:
+[ez_setup.py](https://raw.githubusercontent.com/rushiagr/myutils/master/otherfiles/ez_setup.py)
