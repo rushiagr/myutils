@@ -7,6 +7,7 @@ alias vup='vagrant up'
 alias vh='vagrant halt'
 
 alias vsuspend='vagrant suspend'
+alias vsu='vagrant suspend'
 
 alias vr='vagrant reload'
 alias vreload='vagrant reload'
