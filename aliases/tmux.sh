@@ -1,4 +1,4 @@
-alias tmux='tmux'
+alias tmux='tmux -2'
 
 function mx() {
     if [ -z $1]; then
