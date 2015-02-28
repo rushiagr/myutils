@@ -2,9 +2,9 @@ alias tmux='tmux -2'
 
 function mx() {
     if [ -z $1]; then
-        tmux
+        tmux -2
     else
-        tmux new -s $1
+        tmux -2 new -s $1
     fi
 }
 
