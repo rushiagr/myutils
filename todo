@@ -1,0 +1,2 @@
+* Instead of escape + hash for commenting out current text, or using c-], #,
+  provide alternative for c-], 3 (lowercase of hash)
