@@ -26,7 +26,12 @@ set autoindent
 imap jj <Esc>
 
 " Break lines automatically at 79 characters
-set textwidth=79
+"set textwidth=79
+
+" Put a column at 79 characters, so that one can break lines manually,
+" and make the textwidth thing do it automatically, which becomes a huge
+" pain sometimes
+set colorcolumn=79
 
 " Round off indent to multiple of 'shiftwidth' value
 set shiftround
