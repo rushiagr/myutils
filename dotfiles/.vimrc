@@ -26,7 +26,7 @@ set autoindent
 imap jj <Esc>
 
 " Break lines automatically at 79 characters
-"set textwidth=79
+set textwidth=79
 
 " Round off indent to multiple of 'shiftwidth' value
 set shiftround
