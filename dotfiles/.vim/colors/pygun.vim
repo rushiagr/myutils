@@ -31,7 +31,7 @@ hi Function    ctermfg=82   ctermbg=NONE  cterm=bold
 hi Conditional ctermfg=208  ctermbg=NONE  cterm=bold
 hi Operator    ctermfg=208  ctermbg=NONE  cterm=bold
 hi Todo        ctermfg=253  ctermbg=NONE  cterm=bold
-hi Comment     ctermfg=8  ctermbg=NONE  cterm=NONE
+hi Comment     ctermfg=218  ctermbg=NONE  cterm=NONE
 hi Special     ctermfg=81   ctermbg=NONE  cterm=NONE
 hi String      ctermfg=171  ctermbg=NONE  cterm=NONE
 hi Include     ctermfg=118  ctermbg=NONE  cterm=bold
