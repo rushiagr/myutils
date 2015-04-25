@@ -28,9 +28,33 @@ alias gpuom='git pull origin master'
 
 alias gpomd='git push origin master >/dev/null 2>&1 &'
 
-alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
+
+gch() {
+    if [[ -z $1 ]]; then
+        echo "No branch specified"
+        return
+    fi
+    branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
+    num_matches=0
+    last_match=''
+    for br in $branches; do
+        match=$(echo $br | grep "^$1")
+        if [[ ! -z $match ]]; then
+            num_matches=$(($num_matches+1))
+            last_match=$match
+        fi
+    done
+    if [ $num_matches -eq 0 ]; then
+        echo "No branch matches pattern '^$1'"
+    elif [ $num_matches -eq 1 ]; then
+        git checkout $last_match
+    else
+        echo "Multiple branch matches pattern '^$1'"
+    fi
+}
+
 
 alias gcx='git add --all && git commit -a -m'
 
