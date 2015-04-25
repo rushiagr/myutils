@@ -1,3 +1,5 @@
+cd ~/plan0/portalapp
+
 tmux new-session -d -s django -n py
 tmux new-window -t django:2 -n msql
 tmux new-window -t django:3 -n git
