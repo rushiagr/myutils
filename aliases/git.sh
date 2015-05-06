@@ -32,6 +32,9 @@ alias gchb='git checkout -b'
 alias gchm='git checkout master'
 
 gch() {
+    # Shortcut for 'git checkout'. No need to enter full branch name as the
+    # first parameter. Instead, you just need to enter first few
+    # distinguishing characters
     if [[ -z $1 ]]; then
         echo "No branch specified"
         return
