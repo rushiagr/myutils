@@ -11,4 +11,4 @@ alias auy='sudo -E apt-get update'
 alias aiy='sudo -E apt-get install'
 alias audy='sudo -E apt-get update && sudo apt-get dist-upgrade'
 
-alias dpg='dpkg -l | grep'
+alias dpg='dpkg -l | grep -i'
