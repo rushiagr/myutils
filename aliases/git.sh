@@ -31,7 +31,7 @@ alias gpomd='git push origin master >/dev/null 2>&1 &'
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
 
-gch() {
+function gch() {
     # Shortcut for 'git checkout'. No need to enter full branch name as the
     # first parameter. Instead, you just need to enter first few
     # distinguishing characters
