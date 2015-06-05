@@ -73,3 +73,5 @@ function dkl() {
         dk $c
     done
 }
+
+alias mys='mysql -uroot -pnova'
