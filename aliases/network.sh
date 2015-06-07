@@ -56,11 +56,25 @@ alias ipstn='sudo iptables -S -t nat'
 
 function setproxy() {
     if [ -z $1 ]; then
-        echo "Usage: setproxy <IP>"
+        echo "Usage: setproxy <IP or interface>"
         return
     fi
-    export http_proxy=http://$1:3128
-    export https_proxy=https://$1:3128
+
+    IS_INTERFACE=$(echo $1 | grep -c "^[a-z]")
+
+    if [ $IS_INTERFACE == 1 ]; then
+        echo 'it is an interfcce!'
+        # If an interface (e.g. eth1) is specified, first IP in that
+        # interface's /24 subnet is used (e.g. if IP is 192.168.100.23,
+        # proxy IP chosen is 192.168.100.1
+        IF_IP=$(ifconfig | grep -A 1 ^$1 | tail -1 | cut -d':' -f2 | cut -d' ' -f1)
+        PROXY_IP=$(echo $IF_IP | cut -d'.' -f 1,2,3).1
+    else
+        PROXY_IP=$1
+    fi
+
+    export http_proxy=http://$PROXY_IP:3128
+    export https_proxy=https://$PROXY_IP:3128
 
     NO_PROXY=localhost,127.0.0.1
     ETH_INTERFACES=$(ifconfig | grep ^eth | cut -d ' ' -f 1)
