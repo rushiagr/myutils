@@ -75,3 +75,4 @@ function dkl() {
 }
 
 alias mys='mysql -uroot -pnova'
+alias sx='screen -x'
