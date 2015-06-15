@@ -76,3 +76,7 @@ function dkl() {
 
 alias mys='mysql -uroot -pnova'
 alias sx='screen -x'
+
+alias gow='\
+    export GOPATH=$HOME/src/go; \
+    export PATH=$PATH:$HOME/src/go;'
