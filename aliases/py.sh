@@ -1,1 +1,1 @@
-pmr='python3 manage.py runserver'
+alias pmr='python3 manage.py runserver'
