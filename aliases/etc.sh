@@ -1,4 +1,4 @@
-alias fig='find . | grep --color=always'
+alias fig='find . | grep --color=always -i'
 alias ll='ls -alh --group-directories-first'
 alias rmf='sudo rm -rf'
 alias dfh='df -h'
