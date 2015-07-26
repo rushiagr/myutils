@@ -25,6 +25,11 @@ set autoindent
 " Map jj in insert mode to escape key
 imap jj <Esc>
 
+" Also try jk and kj, so that when I press both keys together, I escape the
+" insert mode
+imap jk <Esc>
+imap kj <Esc>
+
 " Break lines automatically at 79 characters
 "set textwidth=79
 
