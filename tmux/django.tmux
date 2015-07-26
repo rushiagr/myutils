@@ -1,10 +1,9 @@
-cd ~/plan0/portalapp
+cd ~/src/rr
 
-tmux new-session -d -s django -n py
-tmux new-window -t django:2 -n msql
-tmux new-window -t django:3 -n git
-tmux new-window -t django:4 -n tmpl
-tmux new-window -t django:5 -n view
-tmux new-window -t django:6 -n db
-tmux new-window -t django:7 -n model
-tmux new-window -t django:8 -n etc
+tmux new-session -d -s x -n x
+tmux new-window -t x:2 -n tpl
+tmux new-window -t x:3 -n vw
+tmux new-window -t x:4 -n db
+tmux new-window -t x:5 -n mys
+tmux new-window -t x:6 -n url
+tmux new-window -t x:7 -n etc
