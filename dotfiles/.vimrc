@@ -5,6 +5,7 @@ set nu
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+set tabstop=4
 
 " Enable indentation for Python files. After this, the above tab-space
 " thing is not required for Python files, but is still required for
