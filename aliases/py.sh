@@ -8,5 +8,5 @@ alias pmmm2='python manage.py makemigrations'
 alias pmm2='python manage.py migrate'
 alias pm2='python manage.py'
 
-alias pf='pip freeze'
-alias pfg='pip freeze | grep -i'
+alias pf='sudo pip freeze'
+alias pfg='sudo pip freeze | grep -i'
