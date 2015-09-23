@@ -2,7 +2,6 @@
 alias gs='git status'
 alias gb='git branch'
 alias gba='git branch --all'
-alias gbd='git branch -D'
 alias gl='git log'
 alias gr='git remote --verbose'
 alias gru='git remote update'
@@ -30,6 +29,36 @@ alias gpomd='git push origin master >/dev/null 2>&1 &'
 
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
+
+
+function gbd() {
+    if [[ -z $1 ]]; then
+        echo "No branch specified"
+        return
+    fi
+    if [[ ! -z $2 ]]; then
+        echo "You can only delete one branch at a time, for now"
+        return
+    fi
+
+    branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
+    num_matches=0
+    last_match=''
+    for br in $branches; do
+        match=$(echo $br | grep "^$1")
+        if [[ ! -z $match ]]; then
+            num_matches=$(($num_matches+1))
+            last_match=$match
+        fi
+    done
+    if [ $num_matches -eq 0 ]; then
+        echo "No branch matches pattern '^$1'"
+    elif [ $num_matches -eq 1 ]; then
+        git branch -D $last_match
+    else
+        echo "Multiple branch matches pattern '^$1'"
+    fi
+}
 
 function gch() {
     # Shortcut for 'git checkout'. No need to enter full branch name as the
