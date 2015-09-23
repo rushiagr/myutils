@@ -4,7 +4,6 @@ alias gb='git branch'
 alias gba='git branch --all'
 alias gl='git log'
 alias gr='git remote --verbose'
-alias gru='git remote update'
 alias gd='git diff'
 alias ga='git add'
 
@@ -30,6 +29,35 @@ alias gpomd='git push origin master >/dev/null 2>&1 &'
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
 
+
+function gru() {
+    if [[ -z $1 ]]; then
+        echo "No remote specified"
+        return
+    fi
+    if [[ ! -z $2 ]]; then
+        echo "You can only update one remote at a time, for now"
+        return
+    fi
+
+    remotes=$(git remote)
+    num_matches=0
+    last_match=''
+    for r in $remotes; do
+        match=$(echo $r | grep "^$1")
+        if [[ ! -z $match ]]; then
+            num_matches=$(($num_matches+1))
+            last_match=$match
+        fi
+    done
+    if [ $num_matches -eq 0 ]; then
+        echo "No remote matches pattern '^$1'"
+    elif [ $num_matches -eq 1 ]; then
+        git remote update $last_match
+    else
+        echo "Multiple remotes matches pattern '^$1'"
+    fi
+}
 
 function gbd() {
     if [[ -z $1 ]]; then
