@@ -87,3 +87,5 @@ alias arst='sudo service apache2 restart'
 alias astr='sudo service apache2 start'
 alias are='sudo service apache2 reload'
 alias astt='sudo service apache2 status'
+
+alias airkill="sudo kill -9 $(ps aux | grep -i airtel | awk '{print $2}')"
