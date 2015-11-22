@@ -152,6 +152,7 @@ git config --global user.email rushi.agr@gmail.com; \
 git config --global --add gitreview.username "rushiagr"; \
 git config --global help.autocorrect 1; \
 git config --global color.ui true; \
+git config --global core.editor /usr/bin/vim; \
 git config --global core.excludesfile ~/.gitignore_global;'
 
 # All the git commands, blindly shortened
