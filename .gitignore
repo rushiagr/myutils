@@ -4,3 +4,6 @@ dotfiles/.vim/bundle/*
 
 dotfiles/.vim/colors/*
 !dotfiles/.vim/colors/pygun.vim
+
+# Vim
+*.sw[a-z]
