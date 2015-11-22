@@ -3,6 +3,12 @@
 
 * This repo contains all the 'shortcuts' I use.
 
+To install all my shortcuts:
+
+```
+./install-aliases.sh
+```
+
 Copyright 2014, Rushi Agrawal
 
 Vim plugins Github links:
