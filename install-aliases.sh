@@ -25,20 +25,20 @@ fi
 MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
 VPN_CONF_PATH=${MYUTILS_DIR_PATH}/etc/vpn.conf
 
-cat ${MYUTILS_DIR_PATH}/aliases/* >  ~/.aliasrc
-sedeasy "__VPN_CONF_PATH__" $VPN_CONF_PATH ~/.aliasrc
+cat ${MYUTILS_DIR_PATH}/aliases/* >  $HOME/.aliasrc
+sedeasy "__VPN_CONF_PATH__" $VPN_CONF_PATH $HOME/.aliasrc
 
-export IS_BASHRC_EDITED=$(cat ~/.bashrc | grep -c "source ~/.aliasrc")
+export IS_BASHRC_EDITED=$(cat $BASHRC_FILE | grep -c "source $HOME/.aliasrc")
 
 if [ $IS_BASHRC_EDITED -eq 0 ]; then
-    echo "source ~/.aliasrc" >> ~/.bashrc
+    echo "source $HOME/.aliasrc" >> $BASHRC_FILE
 fi
 
 DOTFILES=$(ls -a $MYUTILS_DIR_PATH/dotfiles | grep ^\\.[a-zA-Z])
 
 TEMPDIR=""
 for DOTFILE in $DOTFILES; do
-    if [ -f ~/${DOTFILE} ]; then
+    if [ -f $HOME/${DOTFILE} ]; then
         if [ "${TEMPDIR}" == "" ]; then
             TEMPDIR=$(mktemp -d)
         fi
