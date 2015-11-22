@@ -1,4 +1,4 @@
-#! /bin/bash -e
+#! /bin/bash -eu
 
 # Script which sets everthing up in a system
 
