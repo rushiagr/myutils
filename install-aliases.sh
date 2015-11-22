@@ -3,10 +3,25 @@
 # Script which sets everthing up in a system
 
 function sedeasy {
-      sed -i "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
+    if [ $(uname) == "Darwin" ]; then
+          sed -i "" "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
+      else
+        sed -i "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
+    fi
 }
 
-CURR_FILE_PATH=$(readlink -f $0)
+BASHRC_FILE="$HOME/.bash_history"
+
+
+if [ $(uname) == "Darwin" ]; then
+    if [ $(brew list | grep -c coreutils) == "0" ]; then
+        echo "'coreutils' brew package not installed. Installing now..."
+        brew install coreutils
+    fi
+    CURR_FILE_PATH=$(greadlink -f $0)
+else
+    CURR_FILE_PATH=$(readlink -f $0)
+fi
 MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
 VPN_CONF_PATH=${MYUTILS_DIR_PATH}/etc/vpn.conf
 
@@ -21,14 +36,20 @@ fi
 
 DOTFILES=$(ls -a $MYUTILS_DIR_PATH/dotfiles | grep ^\\.[a-zA-Z])
 
+TEMPDIR=""
 for DOTFILE in $DOTFILES; do
     if [ -f ~/${DOTFILE} ]; then
         if [ "${TEMPDIR}" == "" ]; then
             TEMPDIR=$(mktemp -d)
         fi
-        mv ~/$DOTFILE $TEMPDIR
+        mv $HOME/$DOTFILE $TEMPDIR
     fi
-    cp --recursive $MYUTILS_DIR_PATH/dotfiles/$DOTFILE ~
+
+    if [ $(uname) == "Darwin" ]; then
+        gcp --recursive $MYUTILS_DIR_PATH/dotfiles/$DOTFILE $HOME
+    else
+        cp --recursive $MYUTILS_DIR_PATH/dotfiles/$DOTFILE $HOME
+    fi
 done
 
 echo "Install successful."
