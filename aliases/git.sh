@@ -168,14 +168,14 @@ gclgl() {
         echo "usage: gclgl <gitlab-user>/<repository> [<gitlab-password>]"
         return
     fi
-    git clone https://gitlab/$1
+    git clone https://gitlab.com/$1.git
     repo_name=$(echo $1 | cut -d '/' -f2)
     cd $repo_name
     git remote remove origin
     if [[ -z $2 ]]; then
-        git remote add origin https://rushi-agr@gitlab.com/$1
+        git remote add origin https://rushi-agr@gitlab.com/$1.git
     else
-        git remote add origin https://rushi-agr:$2@gitlab.com/$1
+        git remote add origin https://rushi-agr:$2@gitlab.com/$1.git
     fi
     cd ..
 }
