@@ -10,7 +10,7 @@ function sedeasy {
     fi
 }
 
-BASHRC_FILE="$HOME/.bash_history"
+BASHRC_FILE="$HOME/.bashrc"
 
 
 if [ $(uname) == "Darwin" ]; then
@@ -19,6 +19,7 @@ if [ $(uname) == "Darwin" ]; then
         brew install coreutils
     fi
     CURR_FILE_PATH=$(greadlink -f $0)
+    BASHRC_FILE="$HOME/.bash_profile"
 else
     CURR_FILE_PATH=$(readlink -f $0)
 fi
