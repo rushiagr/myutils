@@ -131,7 +131,7 @@ alias gde='git log --oneline --graph --decorate --all'
 
 gcl() {
     if [[ -z $1 ]]; then
-        echo "usage: gcl <github-user>/<repository>"
+        echo "usage: gcl <github-user>/<repository> [<github-password>]"
         return
     fi
     git clone https://github.com/$1
@@ -142,6 +142,40 @@ gcl() {
         git remote add origin https://rushiagr@github.com/$1
     else
         git remote add origin https://rushiagr:$2@github.com/$1
+    fi
+    cd ..
+}
+
+gclbb() {
+    if [[ -z $1 ]]; then
+        echo "usage: gclbb <bitbucket-user>/<repository> [<bitbucket-password>]"
+        return
+    fi
+    git clone https://bitbucket.org/$1
+    repo_name=$(echo $1 | cut -d '/' -f2)
+    cd $repo_name
+    git remote remove origin
+    if [[ -z $2 ]]; then
+        git remote add origin https://rushiagr@bitbucket.org/$1
+    else
+        git remote add origin https://rushiagr:$2@bitbucket.org/$1
+    fi
+    cd ..
+}
+
+gclgl() {
+    if [[ -z $1 ]]; then
+        echo "usage: gclgl <gitlab-user>/<repository> [<gitlab-password>]"
+        return
+    fi
+    git clone https://gitlab/$1
+    repo_name=$(echo $1 | cut -d '/' -f2)
+    cd $repo_name
+    git remote remove origin
+    if [[ -z $2 ]]; then
+        git remote add origin https://rushi-agr@gitlab.com/$1
+    else
+        git remote add origin https://rushi-agr:$2@gitlab.com/$1
     fi
     cd ..
 }
