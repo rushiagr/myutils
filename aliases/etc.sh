@@ -97,3 +97,9 @@ function f() {
         $*
     done
 }
+function macbat() {
+    # TODO: Don't make call to 'ioreg' twice. It's too bulky a call.
+    currentcapacity=$(ioreg -l | grep CurrentCapacity | awk '{print $5}')
+    maxcapacity=$(ioreg -l | grep MaxCapacity | awk '{print $5}')
+    echo $(($currentcapacity*100 / $maxcapacity ))
+}
