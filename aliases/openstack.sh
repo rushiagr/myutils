@@ -17,3 +17,5 @@ function osdetails() {
     export tok=$(keystone token-get | grep \ id\  | awk '{print $4}')
     echo "Exported: uid tid and tok"
 }
+
+alias dsa='. ~/devstack/openrc admin admin'
