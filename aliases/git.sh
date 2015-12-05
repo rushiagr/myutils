@@ -103,10 +103,13 @@ function gch() {
     # Shortcut for 'git checkout'. No need to enter full branch name as the
     # first parameter. Instead, you just need to enter first few
     # distinguishing characters
+
     if [[ -z $1 ]]; then
-        echo "No branch specified"
+        echo "No branch specified. Trying to check out 'master' instead ..."
+        git checkout master
         return
     fi
+
     branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
     num_matches=0
     last_match=''
