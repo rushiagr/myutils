@@ -147,17 +147,30 @@ alias gde='git log --oneline --graph --decorate --all'
 
 gcl() {
     if [[ -z $1 ]]; then
-        echo "usage: gcl <github-user>/<repository> [<github-password>]"
+        echo "usage: gcl <github-user>/<repository> [[<username>:]<password>]"
         return
     fi
     git clone https://github.com/$1
-    repo_name=$(echo $1 | cut -d '/' -f2)
-    cd $repo_name
+    REPO_NAME=$(echo $1 | cut -d '/' -f2)
+    cd $REPO_NAME
+
+    GITHUB_USER=rushiagr
+    if [[ ! -z $2 ]]; then
+        PASSWORD=$2
+        # If the second argument contains a colon (':'), that means user
+        # has specified username and password both.
+        SECOND_SPLIT=$(echo $2 | cut -d':' -f2)
+        if [[ ! -z $SECOND_SPLIT ]]; then
+            GITHUB_USER=$(echo $2 | cut -d':' -f1)
+            PASSWORD=$SECOND_SPLIT
+        fi
+    fi
+
     git remote remove origin
     if [[ -z $2 ]]; then
-        git remote add origin https://rushiagr@github.com/$1
+        git remote add origin https://$GITHUB_USER@github.com/$1
     else
-        git remote add origin https://rushiagr:$2@github.com/$1
+        git remote add origin https://$GITHUB_USER:$PASSWORD@github.com/$1
     fi
     cd ..
 }
