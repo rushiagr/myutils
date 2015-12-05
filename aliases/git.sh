@@ -122,10 +122,12 @@ function gch() {
     done
     if [ $num_matches -eq 0 ]; then
         echo "No branch matches pattern '^$1'"
+        exit 1
     elif [ $num_matches -eq 1 ]; then
         git checkout $last_match
     else
         echo "Multiple branch matches pattern '^$1'"
+        exit 1
     fi
 }
 
