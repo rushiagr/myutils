@@ -32,14 +32,25 @@ alias gchm='git checkout master'
 
 function gru() {
     if [[ -z $1 ]]; then
-        echo "No remote specified"
+        git remote update
         return
     fi
     if [[ ! -z $2 ]]; then
-        echo "You can only update one remote at a time, for now"
-        return
+        REMOTES=$*
+        # TODO(rushiagr): Add support for specifying regexes as parameters
+        #   to 'gru' instead of remote names. So if there are two remotes
+        #   'origin' and 'anotherremote', I should be able to just say
+        #   'gru o a' and it should update both remotes.
+        # TODO(rushiagr): Add the feature described in the above todo to
+        #   other methods too where it makes sense
+        echo 'Updating remotes: $* ...'
+        for REMOTE in $REMOTES; do
+            git remote update $REMOTE
+        done
     fi
 
+    # Even if few initial characters of a remote name are specified,
+    # pattern-match and update that remote.
     remotes=$(git remote)
     num_matches=0
     last_match=''
