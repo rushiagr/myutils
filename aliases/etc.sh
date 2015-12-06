@@ -38,6 +38,8 @@ function cd() {
 # me anyway to /dir1/dir2/dir3/.
 # TODO(rushiagr): Add colourful message in green whenever we're doing an
 #   intelligent 'cd' :)
+# TODO(rushiagr): doesn't work when the file path has space in it. Maybe I
+#   need to do something like $VAR -> $"{VAR}" type transformation
     if [[ -z $1 ]]; then
         builtin cd
         return
