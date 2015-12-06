@@ -10,3 +10,15 @@ alias pm2='python manage.py'
 
 alias pf='sudo pip freeze'
 alias pfg='sudo pip freeze | grep -i'
+
+function pe(){
+    # Evaluate a python expression
+    if [[ -z $1 ]]; then
+        echo "usage: pe <python-expression>"
+        echo "example:"
+        echo "$ pe 22*4"
+        echo "$ 88"
+        exit 127
+    fi
+    python -c "print $1"
+}
