@@ -32,6 +32,49 @@ function cds() {
 alias cdn='cd ~/notes'
 alias cdv='cd ~/vagrant'
 
+function cd() {
+# Improved 'cd' command
+# If I write 'cd /dir1/dir2/dir3/t', where I typed 't' accidentally, take
+# me anyway to /dir1/dir2/dir3/.
+# TODO(rushiagr): Add colourful message in green whenever we're doing an
+#   intelligent 'cd' :)
+    if [[ -z $1 ]]; then
+        builtin cd
+        return
+    fi
+    builtin cd $1 > /dev/null 2>&1
+    RETVAL=$?
+
+    if [[ $RETVAL != 0 ]]; then
+        TRAILING_DIR_INPUT=$(echo $(pwd)/$1 | rev | cut -d'/' -f1 | rev)
+        #return
+        # If exactly one directory pattern-matches $2, go to that directory
+        # e.g. if the command is 'cd a/t' and there are two directories
+        # 'a/one/' and 'a/two/', then cd the user to 'a/two/' directory
+        PENULTIMATE_PATH=$(echo $(pwd)/$1 | rev | cut -d'/' -f2- | rev)
+        # NOTE: I could have done:
+        #   DIRS_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ' ' -f 1 | rev)
+        # and used this variable below. Instead, I'm doing this work twice below
+        # The problem is that whenever I do a 'grep -c' on this variable
+        # won't ever return a value greater than 1. This is because once I put
+        # data from a command into a variable, the variable will put all the
+        # values from multiple line into a single line.
+        # TODO(rushiagr): make the above comment more readable :)
+        if [[ $(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ' ' -f 1 | rev | grep -c $TRAILING_DIR_INPUT) == 1 ]]; then
+            MATCHED_DIR_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ' ' -f 1 | rev | grep $TRAILING_DIR_INPUT)
+            FINAL_DIR=$(echo $PENULTIMATE_PATH/$MATCHED_DIR_IN_PENULTIMATE_PATH)
+            #/usr/bin/cd $PENULTIMATE_PATH/$MATCHED_DIR_IN_PENULTIMATE_PATH
+            #/usr/bin/cd $FINAL_DIR
+            builtin cd $FINAL_DIR
+            return # TODO(rushiagr): looks like this return statement is unnecessary
+        else
+            # Either there are more than one matches, or no matches. In either
+            # case, just go to the penultimate path
+            builtin cd $PENULTIMATE_PATH
+        fi
+    fi
+}
+
 function pingbg() {
   ping -i 60 $1 >/dev/null 2>&1 &
 }
