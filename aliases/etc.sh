@@ -1,13 +1,11 @@
 alias fig='find . | grep --color=always -i'
-alias ll="ls -larth | grep '^d' && ls -larth | grep -v '^d'"
+alias ll='ls -alh --group-directories-first'
 alias rmf='sudo rm -rf'
 alias dfh='df -h'
 alias duh='du -sch'
 alias psg='ps aux | grep -i --color=always'
 alias gi='grep -i'
-function gri() {
-    grep -rinI --color=always --exclude-dir=.git --exclude-dir=.venv $1 .
-}
+alias gri='grep -rinI --color=always --exclude-dir=.git --exclude-dir=.venv'
 alias griv='grep -rinI --color=always --exclude-dir=.git'
 # Grep no-ignore-case
 alias grin='grep -rnI --color=always'
