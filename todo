@@ -1,2 +1,7 @@
 * Instead of escape + hash for commenting out current text, or using c-], #,
   provide alternative for c-], 3 (lowercase of hash)
+* Abstract out pattern-matching code to a function
+* Write a snippet for #TODO(rushiagr):
+* IMP: save file as soon as I get out of insert mode! Going to be a huuuuge time saver. Also I'll need to get rid of the habit of pressing :w<enter> all the time
+* IMP: Find how to create folds in file with no extension -- for my notes
+* make my new 'cd' work for files which has spaces in their names
