@@ -135,3 +135,11 @@ nnoremap sa gg"+yG
 " Allows copying and pasting to and from VIM to system's clipboard. Note that
 " this doesn't work over an SSH connection.
 set clipboard=unnamedplus
+
+" ** Mac hack **
+" In vim installed with brew, there was a weird problem: any word which was
+" not written in the current 'insert mode' session, was not getting deleted
+" by either pressing backspace or by pressing CTRL+w in that insert mode
+" session. Adding this line solves that issue. Note that this command doesn't
+" alter backspace behavior on an Ubuntu system
+set backspace=2
