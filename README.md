@@ -20,4 +20,6 @@ This will create a file `~/.aliasrc` and add all the aliases and functions in th
 
 ### Some very commonly used shortcuts
 
-git push origin master
+    gpom : git push origin master
+    gcl rushiagr/myutils : git clone https://rushiagr@github.com/rushiagr/myutils.git
+    gru o : git remote update origin
