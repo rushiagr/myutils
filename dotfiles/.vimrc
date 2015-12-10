@@ -143,3 +143,11 @@ set clipboard=unnamedplus
 " session. Adding this line solves that issue. Note that this command doesn't
 " alter backspace behavior on an Ubuntu system
 set backspace=2
+
+" Every time I'll press '#t ', this will expand it to show '# TODO(rushiagr):'
+:abbreviate #t # TODO(rushiagr):
+
+
+" TComment plugin has CTRL+_ CTRL+_ as the shortcut for commenting/uncommenting
+" a line or selected text. Here, I'm mapping it to CTRL+l, for easier access
+map <c-l> <c-_><c-_>
