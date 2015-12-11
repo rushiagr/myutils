@@ -1,5 +1,4 @@
-
-set nu
+set number "also equal to 'set nu'
 
 " Settings for using 4 spaces for tabs, and also 4 deletes for a backspace
 set expandtab
@@ -35,7 +34,7 @@ imap kj <Esc>
 "set textwidth=79
 
 " Put a column at 79 characters, so that one can break lines manually,
-" and make the textwidth thing do it automatically, which becomes a huge
+" and make the textwidth thing NOT do it automatically, which becomes a huge
 " pain sometimes
 set colorcolumn=79
 
@@ -93,6 +92,12 @@ set foldnestmax=2
 " set foldlevel=99
 " set foldnestmax=20
 
+" au means autocmd. Writing 'autocmd BufNewFile,BufRead <pattern> <setting>
+" will make the '<setting>' apply only to files matching '<pattern>'. E.g.:
+" au BufNewFile,BufRead *.py set textwidth=79 will make textwidth=79 only to
+" python files
+autocmd BufNewFile,BufRead *.py set textwidth=79
+autocmd BufNewFile,BufRead *.vimrc set textwidth=79
 " Switch on syntax highlighting for Vagrantfile files
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 
