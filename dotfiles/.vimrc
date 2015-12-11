@@ -96,10 +96,12 @@ set foldnestmax=2
 " will make the '<setting>' apply only to files matching '<pattern>'. E.g.:
 " au BufNewFile,BufRead *.py set textwidth=79 will make textwidth=79 only to
 " python files
-autocmd BufNewFile,BufRead *.py set textwidth=79
-autocmd BufNewFile,BufRead *.vimrc set textwidth=79
+" NOTE: use 'setlocal' instead of 'set', as otherwise the setting will be
+" applied to all files opened in vim and not just the current, local file
+autocmd BufNewFile,BufRead *.py setlocal textwidth=79
+autocmd BufNewFile,BufRead *.vimrc setlocal textwidth=79
 " Switch on syntax highlighting for Vagrantfile files
-au BufNewFile,BufRead Vagrantfile set filetype=ruby
+au BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
 
 
 map /  <Plug>(incsearch-forward)
