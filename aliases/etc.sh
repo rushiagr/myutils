@@ -146,3 +146,5 @@ function macbat() {
     maxcapacity=$(ioreg -l | grep MaxCapacity | awk '{print $5}')
     echo $(($currentcapacity*100 / $maxcapacity ))
 }
+
+alias q="exit"
