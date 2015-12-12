@@ -138,6 +138,17 @@ autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.sh :%s/\s\+$//e
 
+" Function to remove trailing newlines from end of file
+" NOTE: This should be called after removing all whitespaces from file, else
+" trailing lines which contain whitespaces won't be removed probably. Hopefully
+" writing this BufWritePre before the above BufWritePre will work as expected
+function TrimEndLines()
+    let save_cursor = getpos(".")
+    :silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+endfunction
+au BufWritePre *.py call TrimEndLines()
+
 " Use my own colorscheme
 colorscheme pygun
 
@@ -163,3 +174,5 @@ set backspace=2
 " TComment plugin has CTRL+_ CTRL+_ as the shortcut for commenting/uncommenting
 " a line or selected text. Here, I'm mapping it to CTRL+l, for easier access
 map <c-l> <c-_><c-_>
+
+
