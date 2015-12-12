@@ -133,6 +133,11 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Remove all whitespaces from a python or shell file just before saving that
+" file
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.sh :%s/\s\+$//e
+
 " Use my own colorscheme
 colorscheme pygun
 
