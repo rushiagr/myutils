@@ -15,7 +15,7 @@ alias wchere='cat $(find .) 2>/dev/null | wc'
 alias eg='env | grep -i'
 alias egp='env | grep proxy'
 alias less='less -R'
-alias l='less -R'
+alias l='ls -alrth'
 
 alias cdd='cd ..'
 alias cddd='cd ../..'
