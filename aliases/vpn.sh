@@ -18,7 +18,7 @@ vpn () {
         sudo route del -net 0.0.0.0 netmask 0.0.0.0 dev tun0
         sudo route add default gw $GATEWAY
         for ROUTE in $ROUTES; do
-            sudo route add -net $ROUTE/24 dev tun0
+            sudo route add -net $ROUTE/16 dev tun0
         done
     else
         echo "Seems a VPN connection is already established. Exiting.."
