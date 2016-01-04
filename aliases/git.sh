@@ -23,6 +23,11 @@ alias gcaa='git commit -a --amend'
 alias gpo='git push origin'
 alias gpom='git push origin master'
 alias gpuom='git pull origin master'
+# this requires push.default to be set to 'simple'. Note that this might not
+# work if the --set-upstream thing is not set
+# TODO(rushiagr): do a grep on current branch and push to current branch only
+alias gp='git push'
+alias gpu='git pull'
 
 alias gpomd='git push origin master >/dev/null 2>&1 &'
 
