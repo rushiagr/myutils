@@ -248,6 +248,8 @@ alias greview='git review'
 
 # My remote operations
 function grar() {
+    # "git remote add rushiagr"
+    # TODO(rushiagr): move common code of grar and grao to a common function
     if [ ! -z "$1" ]; then
         GIT_PASS=":$1"
     fi
@@ -258,7 +260,20 @@ function grar() {
     unset GIT_PASS REPONAME
 }
 
+function grao() {
+    # "git remote add origin"
+    if [ ! -z "$1" ]; then
+        GIT_PASS=":$1"
+    fi
+
+    # TODO(rushiagr): try to get repository name by an already existing remote
+    REPONAME=$(pwd | rev | cut -d '/' -f 1 | rev)
+    git remote add origin https://rushiagr$GIT_PASS@github.com/rushiagr/$REPONAME
+    unset GIT_PASS REPONAME
+}
+
 alias grur='git remote update rushiagr'
 alias grrr='git remote remove rushiagr'
+alias grro='git remote remove origin'
 alias gprm='git push rushiagr master'
 alias gpurm='git pull rushiagr master'
