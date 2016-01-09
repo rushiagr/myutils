@@ -148,3 +148,7 @@ function macbat() {
 }
 
 alias q="exit"
+
+alias cer='cat /etc/resolv.conf'
+alias ceh='cat /etc/hosts'
+alias teh='tail /etc/hosts'
