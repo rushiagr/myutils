@@ -1,5 +1,3 @@
-alias tmux='tmux -2'
-
 function mx() {
     if [ -z $1]; then
         tmux -2
@@ -27,3 +25,4 @@ function mxa() {
 }
 
 alias mxl='tmux list-sessions'
+alias tmux='tmux -2'
