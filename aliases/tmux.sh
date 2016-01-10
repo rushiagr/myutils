@@ -25,4 +25,6 @@ function mxa() {
 }
 
 alias mxl='tmux list-sessions'
+alias mxd='tmux detach'
+
 alias tmux='tmux -2'
