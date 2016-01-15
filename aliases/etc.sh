@@ -140,6 +140,8 @@ function f() {
         $*
     done
 }
+
+# Mac battery
 function macbat() {
     # TODO: Don't make call to 'ioreg' twice. It's too bulky a call.
     currentcapacity=$(ioreg -l | grep CurrentCapacity | awk '{print $5}')
@@ -152,3 +154,7 @@ alias q="exit"
 alias cer='cat /etc/resolv.conf'
 alias ceh='cat /etc/hosts'
 alias teh='tail /etc/hosts'
+
+# venv activate
+alias va='. .venv/bin/activate'
+alias vd='deactivate'
