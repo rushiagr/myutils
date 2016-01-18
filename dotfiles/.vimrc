@@ -175,4 +175,15 @@ set backspace=2
 " a line or selected text. Here, I'm mapping it to CTRL+l, for easier access
 map <c-l> <c-_><c-_>
 
-
+" Following three lines are required to make vim modelines work. An example of
+" modeline you can use is below. You require modeline to be in exact same
+" format, including spaces and colons exactly as described below, else it might
+" not work:
+"     # vim: set shiftwidth=2 textwidth=80:
+" Not sure if the second line is required, as we're already doing the same
+" thing above in this .vimrc file. Also, note that specifying options in .vimrc
+" instead of writing modelines is a better way of managing specific vim options
+" for specific files, so try to avoid modelines as much as possible.
+set nocompatible
+filetype plugin on
+set modeline
