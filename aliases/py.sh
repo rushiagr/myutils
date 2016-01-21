@@ -18,7 +18,7 @@ function pe(){
         echo "example:"
         echo "$ pe 22*4"
         echo "$ 88"
-        exit 127
+        return
     fi
     python -c "print $1"
 }
