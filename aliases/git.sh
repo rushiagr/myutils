@@ -20,7 +20,6 @@ alias gcam='git commit -a -m'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
 alias gcaa='git commit -a --amend'
-alias gpo='git push origin'
 alias gpom='git push origin master'
 alias gpuom='git pull origin master'
 # this requires push.default to be set to 'simple'. Note that this might not
@@ -283,3 +282,27 @@ alias grrr='git remote remove rushiagr'
 alias grro='git remote remove origin'
 alias gprm='git push rushiagr master'
 alias gpurm='git pull rushiagr master'
+
+# Git push origin <current_branch>
+function gpo() {
+    CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
+    git push origin $CURR_BRANCH
+}
+
+# Git pull origin <current_branch>
+function gpuo() {
+    CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
+    git pull origin $CURR_BRANCH
+}
+
+# Git push rushiagr <current_branch>
+function gpr() {
+    CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
+    git push rushiagr $CURR_BRANCH
+}
+
+# Git pull rushiagr <current_branch>
+function gpur() {
+    CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
+    git pull rushiagr $CURR_BRANCH
+}
