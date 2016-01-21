@@ -169,9 +169,7 @@ set backspace=2
 
 " Every time I'll press '#t ', this will expand it to show '# TODO(rushiagr):'
 :abbreviate #t # TODO(rushiagr):
-:abbreviate #T # TODO(rushiagr):
-:abbreviate #n # NOTE(rushiagr):
-:abbreviate #N # NOTE(rushiagr):
+
 
 " TComment plugin has CTRL+_ CTRL+_ as the shortcut for commenting/uncommenting
 " a line or selected text. Here, I'm mapping it to CTRL+l, for easier access
