@@ -42,16 +42,16 @@ function cd() {
         builtin cd
         return
     fi
-    builtin cd $1 > /dev/null 2>&1
+    builtin cd "${1}" > /dev/null 2>&1
     RETVAL=$?
 
     if [[ $RETVAL != 0 ]]; then
-        TRAILING_DIR_INPUT=$(echo $(pwd)/$1 | rev | cut -d'/' -f1 | rev)
+        TRAILING_DIR_INPUT=$(echo $(pwd)/"${1}" | rev | cut -d'/' -f1 | rev)
         #return
         # If exactly one directory pattern-matches $2, go to that directory
         # e.g. if the command is 'cd a/t' and there are two directories
         # 'a/one/' and 'a/two/', then cd the user to 'a/two/' directory
-        PENULTIMATE_PATH=$(echo $(pwd)/$1 | rev | cut -d'/' -f2- | rev)
+        PENULTIMATE_PATH=$(echo $(pwd)/"${1}" | rev | cut -d'/' -f2- | rev)
         # NOTE: I could have done:
         #   DIRS_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ' ' -f 1 | rev)
         # and used this variable below. Instead, I'm doing this work twice below
