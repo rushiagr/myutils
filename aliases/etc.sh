@@ -120,8 +120,7 @@ function dkl() {
     done
 }
 
-alias mys='mysql -SFX -uroot -pkaka123'
-alias mar='mysql -uroot -pkaka123'
+alias mys='mysql --pager="less -SFXX" -uroot -pkaka123'
 alias sx='screen -x'
 
 alias gow='\
