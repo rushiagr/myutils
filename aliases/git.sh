@@ -304,3 +304,6 @@ function gpur() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
     git pull rushiagr $CURR_BRANCH
 }
+
+# gmupdate updates master to latest
+alias gmupdate='git checkout master && git pull origin master && git checkout -'
