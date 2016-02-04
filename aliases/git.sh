@@ -307,3 +307,5 @@ function gpur() {
 
 # gmupdate updates master to latest
 alias gmupdate='git checkout master && git pull origin master && git checkout -'
+
+alias gpuoms='git stash && git pull origin master && git stash pop'
