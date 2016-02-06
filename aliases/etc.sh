@@ -27,7 +27,9 @@ alias cddddddd='cd ../../../../../..'
 function cds() {
     cd ~/src/$1
 }
-alias cdn='cd ~/notes'
+function cdn() {
+    cd ~/notes/$1
+}
 alias cdv='cd ~/vagrant'
 
 function cd() {
