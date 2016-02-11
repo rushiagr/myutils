@@ -159,4 +159,5 @@ alias teh='tail /etc/hosts'
 
 # venv activate
 alias va='. .venv/bin/activate'
-alias vd='deactivate'
+# 'DeActivate'
+alias da='deactivate'
