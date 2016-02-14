@@ -188,33 +188,25 @@ gclbb() {
         echo "usage: gclbb <bitbucket-user>/<repository> [<bitbucket-password>]"
         return
     fi
-    git clone https://bitbucket.org/$1
-    repo_name=$(echo $1 | cut -d '/' -f2)
-    cd $repo_name
-    git remote remove origin
     if [[ -z $2 ]]; then
-        git remote add origin https://rushiagr@bitbucket.org/$1
+        git clone https://rushiagr@bitbucket.org/$1.git
     else
-        git remote add origin https://rushiagr:$2@bitbucket.org/$1
+        git clone https://rushiagr:$2@bitbucket.org/$1.git
     fi
-    cd ..
 }
 
 gclgl() {
+    # TODO(rushiagr): add more checks before going further, e.g. if there is a
+    # '/' in the first argument, etc
     if [[ -z $1 ]]; then
         echo "usage: gclgl <gitlab-user>/<repository> [<gitlab-password>]"
         return
     fi
-    git clone https://gitlab.com/$1.git
-    repo_name=$(echo $1 | cut -d '/' -f2)
-    cd $repo_name
-    git remote remove origin
     if [[ -z $2 ]]; then
-        git remote add origin https://rushi-agr@gitlab.com/$1.git
+        git clone https://rushiagr@gitlab.com/$1.git
     else
-        git remote add origin https://rushi-agr:$2@gitlab.com/$1.git
+        git clone https://rushiagr:$2@gitlab.com/$1.git
     fi
-    cd ..
 }
 
 alias gitinit='\
