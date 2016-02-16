@@ -158,6 +158,14 @@ alias ceh='cat /etc/hosts'
 alias teh='tail /etc/hosts'
 
 # venv activate
-alias va='. .venv/bin/activate'
+function va() {
+    if [[ -z $1 ]]; then
+        . .venv/bin/activate
+        return
+    fi
+
+    . $1/bin/activate
+}
+
 # 'DeActivate'
 alias da='deactivate'
