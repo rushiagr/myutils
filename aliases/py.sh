@@ -22,3 +22,5 @@ function pe(){
     fi
     python -c "print $1"
 }
+
+alias getpip='cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && sudo -E python get-pip.py && cd -'
