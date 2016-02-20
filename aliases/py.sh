@@ -8,8 +8,7 @@ alias pmmm2='python manage.py makemigrations'
 alias pmm2='python manage.py migrate'
 alias pm2='python manage.py'
 
-alias pf='sudo pip freeze'
-alias pfg='sudo pip freeze | grep -i'
+
 
 function pe(){
     # Evaluate a python expression
@@ -22,3 +21,15 @@ function pe(){
     fi
     python -c "print $1"
 }
+
+alias getpip='cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && sudo -E python get-pip.py && cd -'
+
+alias pf='pip freeze'
+alias pfg='pip freeze | grep -i'
+alias pi='pip install'
+alias piu='pip install --upgrade'
+
+alias spf='sudo -E pip freeze'
+alias spfg='sudo -E pip freeze | grep -i'
+alias spi='sudo -E pip install'
+alias spiu='sudo -E pip install --upgrade'
