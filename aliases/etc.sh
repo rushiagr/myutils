@@ -135,7 +135,7 @@ alias astr='sudo service apache2 start'
 alias are='sudo service apache2 reload'
 alias astt='sudo service apache2 status'
 
-alias airkill="sudo kill -9 $(ps aux | grep -i airtel | awk '{print $2}')"
+alias airkill="sudo kill -9 $(ps aux | grep -i airtel | awk '{print $2}' | grep -v auto)"
 
 function f() {
     for i in `seq 1 10`; do
