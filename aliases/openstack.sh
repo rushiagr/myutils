@@ -18,4 +18,8 @@ function osdetails() {
     echo "Exported: uid tid and tok"
 }
 
+# 'D'ev'S'tack (source) 'A'dmin credentials
 alias dsa='. ~/devstack/openrc admin admin'
+
+# 'D'ev'S'tack (source) normal credentials
+alias ds='. ~/devstack/openrc'
