@@ -159,6 +159,13 @@ alias teh='tail /etc/hosts'
 
 # venv activate
 function va() {
+    # if 'va' is run, it should see if current directory has '.venv' directory,
+    # and if yes, activate the venv in it. If the directory is not present,
+    # check for setup.py file to be present. If it is, then create a venv in
+    # .venv directory. If it's not present, go 4-5 levels up in the directory
+    # hierarchy to find if at any level setup.py is present, and at such a
+    # level, check if '.venv' is present and if yes, activate it or else create
+    # .venv directory
     if [[ -z $1 ]]; then
         . .venv/bin/activate
         return
