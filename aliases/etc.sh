@@ -159,12 +159,30 @@ alias teh='tail /etc/hosts'
 
 # venv activate
 function va() {
-    if [[ -z $1 ]]; then
+    ORIG_DIR=$(pwd)
+
+    while true; do
+        CURR_DIR=$(pwd)
+        if [ $(ls $CURR_DIR | grep -c 'setup.py') == 1 ]; then
+            break
+        elif [ $CURR_DIR == '/' ]; then
+            echo 'No setup.py found in current or any parent directory.'
+            cd $ORIG_DIR
+            return
+        else
+            cd ..
+        fi
+    done
+
+    echo "Virtualenv activated in $CURR_DIR"
+
+    if [ -z $1 ]; then
         . .venv/bin/activate
-        return
+    else
+        . $1/bin/activate
     fi
 
-    . $1/bin/activate
+    cd $ORIG_DIR
 }
 
 # 'DeActivate'
