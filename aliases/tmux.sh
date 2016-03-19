@@ -18,9 +18,9 @@ function mxa() {
             tmux -2 new -s $1
         fi
     elif [ -z $1 ]; then
-        tmux attach
+        tmux -2 attach
     else
-        tmux attach -t $1
+        tmux -2 attach -t $1
     fi
 }
 
