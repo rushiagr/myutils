@@ -161,6 +161,8 @@ gcl() {
         echo "usage: gcl <github-user>/<repository> [[<username>:]<password>]"
         return
     fi
+    # TODO(rushiagr): no need to first do clone and then update remote. Two
+    # steps not needed. Can be done in one.
     git clone https://github.com/$1
     REPO_NAME=$(echo $1 | cut -d '/' -f2)
     cd $REPO_NAME
@@ -187,6 +189,7 @@ gcl() {
 }
 
 gclbb() {
+    # TODO(rushiagr): add 'gcl' like feature where I can or cannot specify a password
     if [[ -z $1 ]]; then
         echo "usage: gclbb <bitbucket-user>/<repository> [<bitbucket-password>]"
         return
