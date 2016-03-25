@@ -167,10 +167,15 @@ alias teh='tail /etc/hosts'
 # venv activate
 function va() {
     ORIG_DIR=$(pwd)
+    if [ -z $1 ]; then
+        VENV_DIR_NAME=".venv"
+    else
+        VENV_DIR_NAME=$1
+    fi
 
     while true; do
         CURR_DIR=$(pwd)
-        if [ $(ls $CURR_DIR | grep -c 'setup.py') == 1 ]; then
+        if [ $(ls -a $CURR_DIR | grep -c "setup\.py$\|$VENV_DIR_NAME$") -gt 0 ]; then
             break
         elif [ $CURR_DIR == '/' ]; then
             echo 'No setup.py found in current or any parent directory.'
@@ -183,14 +188,27 @@ function va() {
 
     echo "Virtualenv activated in $CURR_DIR"
 
-    if [ -z $1 ]; then
-        . .venv/bin/activate
-    else
-        . $1/bin/activate
+    if [ $(ls -a | grep -c "$VENV_DIR_NAME$") -eq 0 ]; then
+        echo "setup.py found at $CURR_DIR, but no $VENV_DIR_NAME dir is found. Creating..."
+        virtualenv $VENV_DIR_NAME
     fi
+
+    . $VENV_DIR_NAME/bin/activate
 
     cd $ORIG_DIR
 }
 
 # 'DeActivate'
 alias da='deactivate'
+
+function vah() {
+    if [ -z $1 ]; then
+        VENV_DIR_NAME=".venv"
+    else
+        VENV_DIR_NAME=$1
+    fi
+    if [ $(ls -a | grep -c '\.venv$') -eq 0 ]; then
+        virtualenv .venv
+    fi
+    . .venv/bin/activate
+}
