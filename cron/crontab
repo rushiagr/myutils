@@ -1,0 +1,3 @@
+SHELL=/bin/bash
+HOME=/home/ubuntu
+* * * * * /usr/bin/runrescuetime 2>&1 >> /tmp/rescuetime.log
