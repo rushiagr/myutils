@@ -112,6 +112,9 @@ function gch() {
         echo "No branch specified. Trying to check out 'master' instead ..."
         git checkout master
         return
+    elif [ $1 == '-' ]; then
+        git checkout -
+        return
     fi
 
     branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
