@@ -212,3 +212,6 @@ function vah() {
     fi
     . .venv/bin/activate
 }
+
+# In Mac, htop needs to be run as sudo to see CPU and memory usage
+alias htop='sudo htop'
