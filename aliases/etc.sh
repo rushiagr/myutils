@@ -215,3 +215,4 @@ function vah() {
 
 # In Mac, htop needs to be run as sudo to see CPU and memory usage
 alias htop='sudo htop'
+alias dk='sudo docker'
