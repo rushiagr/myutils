@@ -157,7 +157,9 @@ nnoremap sa gg"+yG
 
 " Allows copying and pasting to and from VIM to system's clipboard. Note that
 " this doesn't work over an SSH connection.
-set clipboard=unnamedplus
+" NOTE: on Mac, the value should be "unnamed", and on Ubuntu, should be
+" "unnamedplus"
+set clipboard=unnamed
 
 " ** Mac hack **
 " In vim installed with brew, there was a weird problem: any word which was
