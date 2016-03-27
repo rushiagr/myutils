@@ -112,15 +112,15 @@ alias pp='sudo pm-suspend-hybrid'
 
 alias pig='ping google.com'
 
-function dk() {
-    wget -b -O dkdm$1\.mp4 http://media.startv.in/newstream/star/lifeok/mahadev/$1/lf_300.mp4
-}
-
-function dkl() {
-    for (( c=$1; c<=$2; c++ )); do
-        dk $c
-    done
-}
+#function dk() {
+#    wget -b -O dkdm$1\.mp4 http://media.startv.in/newstream/star/lifeok/mahadev/$1/lf_300.mp4
+#}
+#
+#function dkl() {
+#    for (( c=$1; c<=$2; c++ )); do
+#        dk $c
+#    done
+#}
 
 alias mys='mysql --pager="less -SFXX" -uroot -pkaka123'
 alias sx='screen -x'
