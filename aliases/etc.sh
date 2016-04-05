@@ -1,5 +1,5 @@
 alias fig='find . | grep --color=always -i'
-alias ll='ls -alh --group-directories-first'
+alias ll='ls -alrth'
 alias rmf='sudo rm -rf'
 alias dfh='df -h'
 alias duh='du -sch'
