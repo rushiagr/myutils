@@ -6,7 +6,9 @@ alias dfh='df -h'
 alias duh='du -sch'
 alias psg='ps aux | grep -i --color=always'
 alias gi='grep -i'
-alias gri='grep -rinI --color=always --exclude-dir=.git --exclude-dir=.venv --exclude-dir=tags'
+function gri() {
+    grep -rinI --color=always --exclude-dir=.git --exclude-dir=.venv --exclude-dir=tags $1 .
+}
 alias griv='grep -rinI --color=always --exclude-dir=.git --exclude-dir=.venv --exclude-dir=tags'
 # Grep no-ignore-case
 alias grin='grep -rnI --color=always --exclude-dir=.git --exclude-dir=.venv --exclude-dir=tags'
