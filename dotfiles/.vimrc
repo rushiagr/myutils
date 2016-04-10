@@ -189,3 +189,17 @@ map <c-l> <c-_><c-_>
 set nocompatible
 filetype plugin on
 set modeline
+
+" Don't use Vim swap files, and instead autosave! This requires 'autosave'
+" plugin (github.com/907th/vim-auto-save) to be installed. The following
+" settings will
+" 1. Not create any swap files (*.sw[a-z])
+" 2. Not autosave in insert mode
+" 3. Autosave files automatically as you make changes to it. (Immediately saves
+" changes in all modes including visual mode, and for changes made in insert
+" mode autosaves as soon as insert mode is exited)
+" 4. Not print status saying 'Autosaved at <time>'
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
+set noswapfile
