@@ -206,3 +206,6 @@ set noswapfile
 
 " Visual autocomplete in command menu (after typing ':' in visual mode)
 set wildmenu
+
+" show an 'underline' for the line on which cursor is currently present
+set cursorline
