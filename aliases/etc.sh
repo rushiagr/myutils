@@ -166,6 +166,8 @@ alias q="exit"
 alias cer='cat /etc/resolv.conf'
 alias ceh='cat /etc/hosts'
 alias teh='tail /etc/hosts'
+alias veh='sudo vim /etc/hosts'
+alias ver='sudo vim /etc/resolv.conf'
 
 # venv activate
 function va() {
