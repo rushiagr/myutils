@@ -282,25 +282,25 @@ alias gpurm='git pull rushiagr master'
 # Git push origin <current_branch>
 function gpo() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git push origin $CURR_BRANCH
+    git push origin $CURR_BRANCH $1
 }
 
 # Git pull origin <current_branch>
 function gpuo() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git pull origin $CURR_BRANCH
+    git pull origin $CURR_BRANCH $1
 }
 
 # Git push rushiagr <current_branch>
 function gpr() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git push rushiagr $CURR_BRANCH
+    git push rushiagr $CURR_BRANCH $1
 }
 
 # Git pull rushiagr <current_branch>
 function gpur() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git pull rushiagr $CURR_BRANCH
+    git pull rushiagr $CURR_BRANCH $1
 }
 
 # gmupdate updates master to latest
