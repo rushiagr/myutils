@@ -229,3 +229,7 @@ function fixfileperms() {
 }
 
 alias gcu='git commit -m "update $(date)"'
+
+alias qr='python ~/src/myutils/otherfiles/quotesroll.py'
+
+echo "qr"
