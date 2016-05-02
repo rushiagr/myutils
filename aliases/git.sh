@@ -79,6 +79,7 @@ function gbd() {
         echo "No branch specified"
         return
     fi
+    # TODO(rushiagr): fix follwing echo
     if [[ ! -z $2 ]]; then
         echo "You can only delete one branch at a time, for now"
         return

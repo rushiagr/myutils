@@ -233,3 +233,7 @@ alias gcu='git commit -m "update $(date)"'
 alias qr='python ~/src/myutils/otherfiles/quotesroll.py'
 
 echo "qr"
+
+# Start showing matches immediately after pressing tab, instead of pressing tab
+# twice
+bind "set show-all-if-ambiguous on"
