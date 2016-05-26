@@ -237,3 +237,17 @@ echo "qr"
 # Start showing matches immediately after pressing tab, instead of pressing tab
 # twice
 bind "set show-all-if-ambiguous on"
+
+function setupnewuser() {
+    USER=$1
+    OLD_USER=$(users) # NOT a good way actually
+    sudo addgroup $USER
+    sudo /usr/sbin/adduser --system --home /home/$USER --shell /bin/bash  --ingroup $USER --gecos "$USER" $USER
+
+    echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/21_$USER
+
+    sudo -u $USER -H bash -c "sudo mkdir -p ~/.ssh"
+    sudo -u $USER -H bash -c "pwd"
+    sudo -u $USER -H bash -c "sudo cp /home/$OLD_USER/.ssh/authorized_keys ~/.ssh"
+    sudo -u $USER -H bash -c "sudo chown $USER:$USER ~/.ssh/authorized_keys"
+}
