@@ -134,9 +134,9 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Remove all whitespaces from files of specific fileformat just before saving
-autocmd BufWritePre *.py :%s/\s\+$//e
-autocmd BufWritePre *.sh :%s/\s\+$//e
-autocmd BufWritePre *.yaml :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre *.sh :%s/\s\+$//e
+" autocmd BufWritePre *.yaml :%s/\s\+$//e
 
 " Function to remove trailing newlines from end of file
 " NOTE: This should be called after removing all whitespaces from file, else
