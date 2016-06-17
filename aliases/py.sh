@@ -22,7 +22,7 @@ function pe(){
     python -c "print $1"
 }
 
-alias getpip='cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && sudo -E python get-pip.py && cd -'
+alias getpip='cd /tmp && wget https://bootstrap.pypa.io/get-pip.py && sudo -H -E python get-pip.py && cd -'
 
 alias pf='pip freeze'
 alias pfg='pip freeze | grep -i'
