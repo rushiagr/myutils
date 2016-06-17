@@ -209,3 +209,8 @@ set wildmenu
 
 " show an 'underline' for the line on which cursor is currently present
 set cursorline
+
+" Do a case insensitive search when all letters of search string are lowercase.
+" If any of the letters in search string is in upper case, do a case sensitive
+" search
+set smartcase
