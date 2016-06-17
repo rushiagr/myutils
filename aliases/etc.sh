@@ -240,6 +240,9 @@ echo "qr"
 bind "set show-all-if-ambiguous on"
 
 function setupnewuser() {
+    # Creates a new user, and gives passwordless sudo privileges to that user.
+    # There's just one small problem: the user won't have colours for the
+    # terminal, and some basic bash shortcut aliases like 'll'
     USER=$1
     OLD_USER=$(users) # NOT a good way actually
     sudo addgroup $USER
