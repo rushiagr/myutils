@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.define :default do |cfg|
+        config.vm.box_check_update = false
         config.vm.network :private_network, ip:"192.168.100.58"
         config.vm.provider "virtualbox" do |v|
             v.memory = 2500
