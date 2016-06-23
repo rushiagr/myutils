@@ -79,29 +79,26 @@ function gbd() {
         echo "No branch specified"
         return
     fi
-    # TODO(rushiagr): fix follwing echo
-    if [[ ! -z $2 ]]; then
-        echo "You can only delete one branch at a time, for now"
-        return
-    fi
 
-    branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
-    num_matches=0
-    last_match=''
-    for br in $branches; do
-        match=$(echo $br | grep "^$1")
-        if [[ ! -z $match ]]; then
-            num_matches=$(($num_matches+1))
-            last_match=$match
+    for branch_to_delete in $*; do
+        branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
+        num_matches=0
+        last_match=''
+        for br in $branches; do
+            match=$(echo $br | grep "^$branch_to_delete")
+            if [[ ! -z $match ]]; then
+                num_matches=$(($num_matches+1))
+                last_match=$match
+            fi
+        done
+        if [ $num_matches -eq 0 ]; then
+            echo "No branch matches pattern '^$branch_to_delete'"
+        elif [ $num_matches -eq 1 ]; then
+            git branch -D $last_match
+        else
+            echo "Multiple branch matches pattern '^$branch_to_delete'"
         fi
     done
-    if [ $num_matches -eq 0 ]; then
-        echo "No branch matches pattern '^$1'"
-    elif [ $num_matches -eq 1 ]; then
-        git branch -D $last_match
-    else
-        echo "Multiple branch matches pattern '^$1'"
-    fi
 }
 
 function gch() {
