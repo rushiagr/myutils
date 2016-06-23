@@ -67,8 +67,6 @@ function cd() {
         if [[ $(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep -c ^$TRAILING_DIR_INPUT) == 1 ]]; then
             MATCHED_DIR_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep ^$TRAILING_DIR_INPUT)
             FINAL_DIR=$(echo $PENULTIMATE_PATH/$MATCHED_DIR_IN_PENULTIMATE_PATH)
-            #/usr/bin/cd $PENULTIMATE_PATH/$MATCHED_DIR_IN_PENULTIMATE_PATH
-            #/usr/bin/cd $FINAL_DIR
             builtin cd "${FINAL_DIR}"
             return # TODO(rushiagr): looks like this return statement is unnecessary
         else
