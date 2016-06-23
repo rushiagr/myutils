@@ -138,6 +138,8 @@ alias grv='git review -y -vvv'
 #   my fingers already few times!
 # TODO(rushiagr): Don't run this command and error out if there are modified
 #   files whose changes are not committed are present.
+# TODO(rushiagr): there exists a better method to do this. Figure it out and
+# use that instead
 alias gitremove='git reset --soft HEAD^ && git reset --hard'
 
 alias gdecorate='git log --oneline --graph --decorate --all'
@@ -148,11 +150,6 @@ gcl() {
         echo "usage: gcl <github-user>/<repository> [[<username>:]<password>]"
         return
     fi
-    # TODO(rushiagr): no need to first do clone and then update remote. Two
-    # steps not needed. Can be done in one.
-    git clone https://github.com/$1
-    REPO_NAME=$(echo $1 | cut -d '/' -f2)
-    cd $REPO_NAME
 
     GITHUB_USER=rushiagr
     if [[ ! -z $2 ]]; then
@@ -166,17 +163,16 @@ gcl() {
         fi
     fi
 
-    git remote remove origin
     if [[ -z $2 ]]; then
-        git remote add origin https://$GITHUB_USER@github.com/$1
+        git clone https://$GITHUB_USER@github.com/$1
     else
-        git remote add origin https://$GITHUB_USER:$PASSWORD@github.com/$1
+        git clone https://$GITHUB_USER:$PASSWORD@github.com/$1
     fi
-    cd ..
 }
 
 gclbb() {
-    # TODO(rushiagr): add 'gcl' like feature where I can or cannot specify a password
+    # TODO(rushiagr): update this code to make it like gcl
+    # TODO(rushiagr): even better -- don't duplicate code in gcl, gclbb and gclgl
     if [[ -z $1 ]]; then
         echo "usage: gclbb <bitbucket-user>/<repository> [<bitbucket-password>]"
         return
