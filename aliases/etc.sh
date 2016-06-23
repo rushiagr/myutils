@@ -68,7 +68,6 @@ function cd() {
             MATCHED_DIR_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep ^$TRAILING_DIR_INPUT)
             FINAL_DIR=$(echo $PENULTIMATE_PATH/$MATCHED_DIR_IN_PENULTIMATE_PATH)
             builtin cd "${FINAL_DIR}"
-            return # TODO(rushiagr): looks like this return statement is unnecessary
         else
             # Either there are more than one matches, or no matches. In either
             # case, just go to the penultimate path
