@@ -85,7 +85,7 @@ function gbd() {
         elif [ $num_matches -eq 1 ]; then
             git branch -D $last_match
         else
-            echo "Multiple branch matches pattern '^$branch_to_delete'"
+            echo "Multiple branches match pattern '^$branch_to_delete'"
         fi
     done
 }
