@@ -1,10 +1,8 @@
 * If 'pwd' is inside '/Users/apple/Dropbox/codes/notes', then change the '/Users/apple/Dropbox/codes/notes' part to '~/notes`
-* By default, remove whitespaces of all files.
 
 * files/directories in dotfiles directory should not start with a dot, but when putting those files at appropriate locations via install-aliases.sh, put a dot in front.
 
 * Instead of escape + hash for commenting out current text, or using c-], #,
   provide alternative for c-], 3 (lowercase of hash)
 * Abstract out pattern-matching code to a function
-* IMP: Find how to create folds in file with no extension -- for my notes
 * make my new 'cd' work for files which has spaces in their names
