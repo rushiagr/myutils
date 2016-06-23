@@ -24,7 +24,6 @@ alias gpom='git push origin master'
 alias gpuom='git pull origin master'
 # this requires push.default to be set to 'simple'. Note that this might not
 # work if the --set-upstream thing is not set
-# TODO(rushiagr): do a grep on current branch and push to current branch only
 alias gp='git push'
 alias gpu='git pull'
 
@@ -39,39 +38,29 @@ function gru() {
         git remote update
         return
     fi
-    if [[ ! -z $2 ]]; then
-        REMOTES=$*
-        # TODO(rushiagr): Add support for specifying regexes as parameters
-        #   to 'gru' instead of remote names. So if there are two remotes
-        #   'origin' and 'anotherremote', I should be able to just say
-        #   'gru o a' and it should update both remotes.
-        # TODO(rushiagr): Add the feature described in the above todo to
-        #   other methods too where it makes sense
-        echo 'Updating remotes: $* ...'
-        for REMOTE in $REMOTES; do
-            git remote update $REMOTE
-        done
-    fi
 
-    # Even if few initial characters of a remote name are specified,
-    # pattern-match and update that remote.
-    remotes=$(git remote)
-    num_matches=0
-    last_match=''
-    for r in $remotes; do
-        match=$(echo $r | grep "^$1")
-        if [[ ! -z $match ]]; then
-            num_matches=$(($num_matches+1))
-            last_match=$match
+    for remote_to_update in $*; do
+        # Even if few initial characters of a remote name are specified,
+        # pattern-match and update that remote.
+        remotes=$(git remote)
+        num_matches=0
+        last_match=''
+        for r in $remotes; do
+            match=$(echo $r | grep "^$remote_to_update")
+            if [[ ! -z $match ]]; then
+                num_matches=$(($num_matches+1))
+                last_match=$match
+            fi
+        done
+        if [ $num_matches -eq 0 ]; then
+            echo "No remote matches pattern '^$remote_to_update'"
+        elif [ $num_matches -eq 1 ]; then
+            echo "Updating remote $last_match"
+            git remote update $last_match
+        else
+            echo "Multiple remotes match pattern '^$remote_to_update'"
         fi
     done
-    if [ $num_matches -eq 0 ]; then
-        echo "No remote matches pattern '^$1'"
-    elif [ $num_matches -eq 1 ]; then
-        git remote update $last_match
-    else
-        echo "Multiple remotes matches pattern '^$1'"
-    fi
 }
 
 function gbd() {
