@@ -126,7 +126,7 @@ alias sx='screen -x'
 
 alias gow='\
     export GOPATH=$HOME/src/go; \
-    export PATH=$PATH:$HOME/src/go;'
+    export PATH=$PATH:$HOME/src/go:$HOME/src/go/bin;'
 
 alias astp='sudo service apache2 stop'
 alias arst='sudo service apache2 restart'
