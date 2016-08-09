@@ -1,3 +1,6 @@
+If i have a dir 'notes' and i have a file notes.txt, and i try to do 'cd note', it doesn't automatically takes me to 'notes' directory coz it sees a conflict.
+
+k
 * If 'pwd' is inside '/Users/apple/Dropbox/codes/notes', then change the '/Users/apple/Dropbox/codes/notes' part to '~/notes`
 
 * files/directories in dotfiles directory should not start with a dot, but when putting those files at appropriate locations via install-aliases.sh, put a dot in front.
