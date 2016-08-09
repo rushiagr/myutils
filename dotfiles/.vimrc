@@ -169,8 +169,14 @@ set clipboard=unnamed
 " alter backspace behavior on an Ubuntu system
 set backspace=2
 
-" Every time I'll press '#t ', this will expand it to show '# TODO(rushiagr):'
+" Add some abbreviations
 :abbreviate #t # TODO(rushiagr):
+:abbreviate #T # TODO(rushiagr):
+:abbreviate /t // TODO(rushiagr):
+:abbreviate /T // TODO(rushiagr):
+:abbreviate #n # NOTE(rushiagr):
+:abbreviate #N # NOTE(rushiagr):
+:abbreviate pdb import pdb;pdb.set_trace();
 
 
 " TComment plugin has CTRL+_ CTRL+_ as the shortcut for commenting/uncommenting
