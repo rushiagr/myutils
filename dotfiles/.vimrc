@@ -148,6 +148,7 @@ function TrimEndLines()
     call setpos('.', save_cursor)
 endfunction
 au BufWritePre *.py call TrimEndLines()
+au BufWritePre *.sh call TrimEndLines()
 
 " Use my own colorscheme
 colorscheme pygun
