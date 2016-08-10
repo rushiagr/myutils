@@ -8,6 +8,9 @@ alias pmmm2='python manage.py makemigrations'
 alias pmm2='python manage.py migrate'
 alias pm2='python manage.py'
 
+alias pir='pip install -r requirements.txt'
+alias spir='pip install -r requirements.txt'
+
 
 
 function pe(){
