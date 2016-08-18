@@ -120,7 +120,8 @@ alias pig='ping google.com'
 #    done
 #}
 
-alias mys='mysql --pager="less -SFXX" -uroot -pkaka123'
+alias mys='mysql --pager="less -SFX" -uroot -pnova -h $(ifconfig en0 | grep "inet " | aw 2)'
+
 alias sx='screen -x'
 
 alias gow='\
