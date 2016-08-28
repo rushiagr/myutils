@@ -219,5 +219,9 @@ set cursorline
 
 " Do a case insensitive search when all letters of search string are lowercase.
 " If any of the letters in search string is in upper case, do a case sensitive
-" search
-set smartcase
+" search. NOTE: not working for me, probably as I'm using incsearch.vim plugin,
+" and not the default Vim searching tool.
+" set smartcase
+
+" Do a case insensitive search always
+set ignorecase
