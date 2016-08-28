@@ -202,6 +202,9 @@ function va() {
 # 'DeActivate'
 alias da='deactivate'
 
+# TODO(rushiagr): move to python file
+# TODO(rushiagr): in vah and vah3, if a different VENV_DIR_NAME is specified,
+# it doesn't work properly. Fix it.
 function vah() {
     if [ -z $1 ]; then
         VENV_DIR_NAME=".venv"
@@ -210,6 +213,19 @@ function vah() {
     fi
     if [ $(ls -a | grep -c '\.venv$') -eq 0 ]; then
         virtualenv .venv
+    fi
+    . .venv/bin/activate
+}
+
+function vah3() {
+    if [ -z $1 ]; then
+        VENV_DIR_NAME=".venv"
+    else
+        VENV_DIR_NAME=$1
+    fi
+    if [ $(ls -a | grep -c '\.venv$') -eq 0 ]; then
+        virtualenv -p python3 .venv
+
     fi
     . .venv/bin/activate
 }
