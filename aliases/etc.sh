@@ -307,3 +307,5 @@ alias cx='curl -H "Authorization: token $MYTOKEN" -H "Content-Type: application/
 
 alias his='history | awk '"'"'{$1="";print substr($0,2)}'"'"''
 alias hisl='his | less'
+
+alias pkgupload='python setup.py bdist_wheel && twine upload dist/$(ls -t dist/ | head -1)'
