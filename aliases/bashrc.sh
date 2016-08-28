@@ -13,6 +13,6 @@ HISTIGNORE="*personal*:*secret*:cd*"
 #    consecutively), remove all previous instances from history and add only one
 #    new instance, effectively removing all duplicates from history, including
 #    non-consecutive ones
-HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+HISTCONTROL=ignoredups:erasedups
