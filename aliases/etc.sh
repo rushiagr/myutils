@@ -300,3 +300,6 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
+
+alias his='history | awk '"'"'{$1="";print substr($0,2)}'"'"''
+alias hisl='his | less'
