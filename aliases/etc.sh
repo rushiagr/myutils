@@ -26,6 +26,7 @@ alias cdddd='cd ../../..'
 alias cddddd='cd ../../../..'
 alias cdddddd='cd ../../../../..'
 alias cddddddd='cd ../../../../../..'
+alias cdp='cd -'
 
 function cds() {
     cd ~/src/$1
