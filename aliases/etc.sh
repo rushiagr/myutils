@@ -301,5 +301,8 @@ man() {
             man "$@"
 }
 
+alias cxp='curl -XPOST -H "Authorization: token $MYTOKEN" -H "Content-Type: application/json"'
+alias cx='curl -H "Authorization: token $MYTOKEN" -H "Content-Type: application/json"'
+
 alias his='history | awk '"'"'{$1="";print substr($0,2)}'"'"''
 alias hisl='his | less'
