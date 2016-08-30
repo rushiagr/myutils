@@ -156,8 +156,8 @@ gcl() {
         PASSWORD=$2
         # If the second argument contains a colon (':'), that means user
         # has specified username and password both.
-        SECOND_SPLIT=$(echo $2 | cut -d':' -f2)
-        if [[ ! -z $SECOND_SPLIT ]]; then
+        HAS_COLON=$(echo $2 | grep -c ":")
+        if [[ $HAS_COLON == 1 ]]; then
             GITHUB_USER=$(echo $2 | cut -d':' -f1)
             PASSWORD=$SECOND_SPLIT
         fi
