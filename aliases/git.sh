@@ -213,12 +213,13 @@ alias gremote='git remote'
 alias gadd='git add'
 alias greview='git review'
 
-# My remote operations
-function grar() {
+_base_grax() {
+    # param 1: remote name
+    # param 2: git user's password
     # "git remote add rushiagr"
-    # TODO(rushiagr): move common code of grar and grao to a common function
-    if [ ! -z "$1" ]; then
-        GIT_PASS=":$1"
+
+    if [ ! -z "$2" ]; then
+        GIT_PASS=":$2"
     fi
 
     # TODO(rushiagr): try to get repository name by an already existing remote
@@ -227,16 +228,12 @@ function grar() {
     unset GIT_PASS REPONAME
 }
 
-function grao() {
-    # "git remote add origin"
-    if [ ! -z "$1" ]; then
-        GIT_PASS=":$1"
-    fi
+function grar() {
+    _base_grax rushiagr $1
+}
 
-    # TODO(rushiagr): try to get repository name by an already existing remote
-    REPONAME=$(pwd | rev | cut -d '/' -f 1 | rev)
-    git remote add origin https://rushiagr$GIT_PASS@github.com/rushiagr/$REPONAME
-    unset GIT_PASS REPONAME
+function grao() {
+    _base_grax origin $1
 }
 
 alias grur='git remote update rushiagr'
@@ -269,7 +266,7 @@ function gpur() {
     git pull rushiagr $CURR_BRANCH $1
 }
 
-# gmupdate updates master to latest
+# gmupdate updates master to latest. Mnemonic: 'git master update'
 alias gmupdate='git checkout master && git pull origin master && git checkout -'
 
 alias gpuoms='git stash && git pull origin master && git stash pop'
