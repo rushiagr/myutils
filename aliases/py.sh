@@ -41,6 +41,14 @@ alias mye3='source ~/etc/venvpy35/bin/activate'
 
 # venv activate
 function va() {
+#1. if a directory is specified:
+#        if the directory exists:
+#            activate venv
+#        if doesnt;
+#            create directory and put venv in it and activate
+#2. if a directory is not specified:
+#    go recursively above and above and find a '.venv' directory and activate it if found, else return
+
     ORIG_DIR=$(pwd)
     if [ -z $1 ]; then
         VENV_DIR_NAME=".venv"
