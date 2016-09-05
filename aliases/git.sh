@@ -141,57 +141,44 @@ alias gitremove='git stash && git reset --soft HEAD^ && git reset --hard'
 alias gdecorate='git log --oneline --graph --decorate --all'
 alias gde='git log --oneline --graph --decorate --all'
 
-gcl() {
-    if [[ -z $1 ]]; then
-        echo "usage: gcl <github-user>/<repository> [[<username>:]<password>]"
+_base_gcl() {
+    # Param 1: website (e.g. 'github.com', 'gitlab.com', 'bitbucket.org')
+    # Param 2: repository (e.g. 'rushiagr/myutils')
+    # Param 1: [username:]password (e.g. 'mypassword', 'myusername:mypassword')
+    if [[ -z $2 ]]; then
+        echo "usage: gcl <$1-user>/<repository> [[<username>:]<password>]"
         return
     fi
 
     GITHUB_USER=rushiagr
-    if [[ ! -z $2 ]]; then
-        PASSWORD=$2
+    if [[ ! -z $3 ]]; then
+        PASSWORD=$3
         # If the second argument contains a colon (':'), that means user
         # has specified username and password both.
-        HAS_COLON=$(echo $2 | grep -c ":")
+        HAS_COLON=$(echo $3 | grep -c ":")
         if [[ $HAS_COLON == 1 ]]; then
-            GITHUB_USER=$(echo $2 | cut -d':' -f1)
+            GITHUB_USER=$(echo $3 | cut -d':' -f1)
             PASSWORD=$SECOND_SPLIT
         fi
     fi
 
-    if [[ -z $2 ]]; then
-        git clone https://$GITHUB_USER@github.com/$1
+    if [[ -z $3 ]]; then
+        git clone https://$GITHUB_USER@$1/$2.git
     else
-        git clone https://$GITHUB_USER:$PASSWORD@github.com/$1
+        git clone https://$GITHUB_USER:$PASSWORD@$1/$2.git
     fi
+}
+
+gcl() {
+    _base_gcl github.com $1 $2
 }
 
 gclbb() {
-    # TODO(rushiagr): update this code to make it like gcl
-    # TODO(rushiagr): even better -- don't duplicate code in gcl, gclbb and gclgl
-    if [[ -z $1 ]]; then
-        echo "usage: gclbb <bitbucket-user>/<repository> [<bitbucket-password>]"
-        return
-    fi
-    if [[ -z $2 ]]; then
-        git clone https://rushiagr@bitbucket.org/$1.git
-    else
-        git clone https://rushiagr:$2@bitbucket.org/$1.git
-    fi
+    _base_gcl bitbucket.org $1 $2
 }
 
 gclgl() {
-    # TODO(rushiagr): add more checks before going further, e.g. if there is a
-    # '/' in the first argument, etc
-    if [[ -z $1 ]]; then
-        echo "usage: gclgl <gitlab-user>/<repository> [<gitlab-password>]"
-        return
-    fi
-    if [[ -z $2 ]]; then
-        git clone https://rushiagr@gitlab.com/$1.git
-    else
-        git clone https://rushiagr:$2@gitlab.com/$1.git
-    fi
+    _base_gcl gitlab.com $1 $2
 }
 
 alias gitinit='\
