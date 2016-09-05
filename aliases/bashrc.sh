@@ -1,6 +1,6 @@
 HISTSIZE=100000
 HISTFILESIZE=200000
-HISTIGNORE="*personal*:*secret*:cd*"
+HISTIGNORE="*personal*:*secret*:cd*:youtube-dl*"
 
 # Following lines do this:
 #  - If the same command is entered again consecutively, store only one copy
