@@ -132,15 +132,11 @@ alias grv='git review -y -vvv'
 # Fancy ones
 
 # Completely removes the last commit
-# BEWARE: If you have any uncommitted changes already present in the working
-#   directory, this command is going to clean them up too! Do make sure you
-#   run this command when 'git status' show no modified files. I've burnt
-#   my fingers already few times!
-# TODO(rushiagr): Don't run this command and error out if there are modified
-#   files whose changes are not committed are present.
+# TODO(rushiagr): If there are modified files, instead of stashing them, raise
+# a warning and exit.
 # TODO(rushiagr): there exists a better method to do this. Figure it out and
 # use that instead
-alias gitremove='git reset --soft HEAD^ && git reset --hard'
+alias gitremove='git stash && git reset --soft HEAD^ && git reset --hard'
 
 alias gdecorate='git log --oneline --graph --decorate --all'
 alias gde='git log --oneline --graph --decorate --all'
