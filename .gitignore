@@ -7,3 +7,5 @@ dotfiles/.vim/colors/*
 
 # Vim
 *.sw[a-z]
+
+*.VimballRecord
