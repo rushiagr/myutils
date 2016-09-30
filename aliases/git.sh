@@ -1,5 +1,5 @@
 # Shortucts which are frequently used.
-alias gs='git status'
+alias gs='git status --short branch'
 alias gb='git branch'
 alias gba='git branch --all'
 alias gl='git log'
