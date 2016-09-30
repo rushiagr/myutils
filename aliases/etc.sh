@@ -99,6 +99,11 @@ alias sr='source ~/.aliasrc'
 stty werase undef
 bind '\C-w:unix-filename-rubout'
 
+# After adding this line, I can type '!!' and press space to see what was the
+# last command I ran.
+bind Space:magic-space
+
+
 alias cdl='cd -'
 
 alias vv='vim Vagrantfile'
