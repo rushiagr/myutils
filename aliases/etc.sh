@@ -186,7 +186,7 @@ alias gcu='git commit -m "update $(date)"'
 
 alias qr='python ~/src/myutils/otherfiles/quotesroll.py'
 
-echo "qr"
+printf "qr "
 
 # Start showing matches immediately after pressing tab, instead of pressing tab
 # twice
