@@ -7,6 +7,7 @@ alias gr='git remote --verbose'
 alias gd='git diff'
 alias ga='git add'
 
+alias gds='git diff --stat'
 alias grh='git reset --hard'
 alias grs='git reset --soft HEAD^'
 alias grco='git rebase --continue'

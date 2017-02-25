@@ -250,3 +250,8 @@ alias his='history | awk '"'"'{$1="";print substr($0,2)}'"'"''
 alias hisl='his | less'
 
 alias pkgupload='python setup.py bdist_wheel && twine upload dist/$(ls -t dist/ | head -1)'
+
+alias c6='chmod 600'
+
+# Adding this enables reverse reverse search in terminal, on mac
+stty -ixon

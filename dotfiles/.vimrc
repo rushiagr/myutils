@@ -225,3 +225,9 @@ set cursorline
 
 " Do a case insensitive search always
 set ignorecase
+
+" Skip backup if file is present in /tmp/ or /private/tmp/ directories. This
+" needs to be done because we're using 'autosave', which I guess does something
+" with backup files. We need to skip /tmp/ and /private/tmp because otherwise
+" we won't be able to modify cron files using 'crontab -e' command.
+set backupskip=/tmp/*,/private/tmp/*
