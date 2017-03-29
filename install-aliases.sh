@@ -27,6 +27,7 @@ MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
 #VPN_CONF_PATH=${MYUTILS_DIR_PATH}/etc/vpn.conf
 
 cat ${MYUTILS_DIR_PATH}/aliases/* >  $HOME/.aliasrc
+cat ${MYUTILS_DIR_PATH}/superutils/safe/* >>  $HOME/.aliasrc
 #sedeasy "__VPN_CONF_PATH__" $VPN_CONF_PATH $HOME/.aliasrc
 
 export IS_BASHRC_EDITED=$(cat $BASHRC_FILE | grep -c "source $HOME/.aliasrc")
