@@ -126,7 +126,8 @@ let g:flake8_show_quickfix=1
 "Highlight trailing whitespace in red
 "Have this highlighting not appear whilst you are typing in insert mode
 "Have the highlighting of whitespace apply when you open new buffers
-highlight ExtraWhitespace ctermbg=161 guibg=161
+" guibg below was 161, but somehow doesn't work now
+highlight ExtraWhitespace ctermbg=161 guibg=#1c1c1c
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
