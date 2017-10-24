@@ -126,7 +126,8 @@ let g:flake8_show_quickfix=1
 "Highlight trailing whitespace in red
 "Have this highlighting not appear whilst you are typing in insert mode
 "Have the highlighting of whitespace apply when you open new buffers
-" guibg below was 161, but somehow doesn't work now
+" guibg below was 161, but somehow doesn't work now, so modified to working
+" version
 highlight ExtraWhitespace ctermbg=161 guibg=#1c1c1c
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -136,6 +137,11 @@ autocmd BufWinLeave * call clearmatches()
 
 " Remove all whitespaces from files of specific fileformat just before saving
 autocmd BufWritePre * :%s/\s\+$//e
+" .. and while doing so above, don't move cursor to somewhere else, just bring
+" it back to where it was before the 'trailing whitespace deletion' operation
+" started
+autocmd BufWritePre * :exe "normal \<C-o>"
+
 " autocmd BufWritePre *.sh :%s/\s\+$//e
 " autocmd BufWritePre *.yaml :%s/\s\+$//e
 
