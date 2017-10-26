@@ -102,8 +102,8 @@ alias sr='source ~/.aliasrc'
 alias cdl='cd -'
 
 alias vv='vim Vagrantfile'
-alias vim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; vim'
-alias svim='if [ $TERM == "xterm" ]; then export TERM=xterm-256color; fi; sudo vim'
+alias vim='if [[ $TERM == "xterm" ]]; then export TERM=xterm-256color; fi; vim'
+alias svim='if [[ $TERM == "xterm" ]]; then export TERM=xterm-256color; fi; sudo vim'
 alias sv='svim'
 
 

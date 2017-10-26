@@ -100,7 +100,7 @@ function gch() {
         echo "No branch specified. Trying to check out 'master' instead ..."
         git checkout master
         return
-    elif [ $1 == '-' ]; then
+    elif [[ $1 == '-' ]]; then
         git checkout -
         return
     fi

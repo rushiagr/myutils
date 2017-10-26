@@ -61,7 +61,7 @@ function va() {
         CURR_DIR=$(pwd)
         if [ $(ls -a $CURR_DIR | grep -c "setup\.py$\|$VENV_DIR_NAME$") -gt 0 ]; then
             break
-        elif [ $CURR_DIR == '/' ]; then
+        elif [[ $CURR_DIR == '/' ]]; then
             echo 'No setup.py found in current or any parent directory.'
             cd $ORIG_DIR
             return
