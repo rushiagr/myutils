@@ -168,7 +168,7 @@ function fixfileperms() {
 
 alias gcu='git commit -m "update $(date)"'
 
-alias qr='python ~/src/myutils/otherfiles/quotesroll.py'
+alias qr="python ~/src/myutils/otherfiles/quotesroll.py $USER"
 
 function setupnewuser() {
     # Creates a new user, and gives passwordless sudo privileges to that user.
