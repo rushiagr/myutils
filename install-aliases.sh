@@ -42,7 +42,7 @@ TEMPDIR=""
 for DOTFILE in $DOTFILES; do
     if [ -f $HOME/${DOTFILE} ]; then
         if [ "${TEMPDIR}" == "" ]; then
-            TEMPDIR=$(mktemp -d)
+            TEMPDIR=$(mktemp -d /tmp/myutils-backup-$(date +"%y%m%d%H%M%S")-XXXX)
         fi
         mv $HOME/$DOTFILE $TEMPDIR
     fi
@@ -61,4 +61,29 @@ echo "    source ~/.aliasrc"
 if [ "${TEMPDIR}" != "" ]; then
     echo -e "\nThe following existing dotfiles are moved to temp dir $TEMPDIR:"
     echo $(ls -a $TEMPDIR | grep ^\\.[a-zA-Z])
+fi
+
+# Section where pathogen and all vim plugins are set up.blah
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+
+if [[ $(ls ~/.vim/autoload/  | grep -c pathogen.vim$) == 0 ]]; then
+    echo "Pathogen not present. Downloading pathogen after 10 seconds. Press Ctrl-C to abort"
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+else
+    echo "Pathogen already set up"
+fi
+
+vim_plugins_to_download=0
+cd ~/.vim/bundle
+for repo_url in $(cat $MYUTILS_DIR_PATH/vim-plugins); do
+    plugin_name=$(echo $repo_url | rev | cut -d/ -f1 | rev)
+    if [[ $(ls ~/.vim/bundle/ | grep -c $plugin_name$) == 0 ]]; then
+        if [[ $vim_plugins_to_download == 0 ]]; then
+            echo "Downloading vim plugins after 10 seconds. Press Ctrl-C to abort"
+        fi
+        git clone $repo_url
+    fi
+done
+if [[ $vim_plugins_to_download == 0 ]]; then
+    echo "All VIM plugins already installed"
 fi
