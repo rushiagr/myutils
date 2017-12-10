@@ -135,13 +135,19 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" Remove all whitespaces from files of specific fileformat just before saving
-autocmd BufWritePre * :%s/\s\+$//e
-" .. and while doing so above, don't move cursor to somewhere else, just bring
-" it back to where it was before the 'trailing whitespace deletion' operation
-" started
-autocmd BufWritePre * :exe "normal \<C-o>"
+" Remove all whitespaces from file just before saving (inspired from https://unix.stackexchange.com/a/75438)
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" Remove all whitespaces from file just before saving (but this moves cursor)
+" autocmd BufWritePre * :%s/\s\+$//e
+
+" Other examples of removing whitespace from only specific file types
 " autocmd BufWritePre *.sh :%s/\s\+$//e
 " autocmd BufWritePre *.yaml :%s/\s\+$//e
 
