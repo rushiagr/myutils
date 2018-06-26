@@ -89,6 +89,12 @@ function aw() {
     awk "{print \$${1:-1}}" $2;
 }
 
+# Kill all the processes which matches specified pattern. Won't kill sudo
+# processes
+function pskill() {
+    kill -9 $(ps aux | grep -i $1 | awk '{print $2}')
+}
+
 alias venv='source ~/src/venvs/main/bin/activate'
 alias quit='exit'
 alias unproxy='unset http_proxy https_proxy no_proxy'
