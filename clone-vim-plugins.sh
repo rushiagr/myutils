@@ -10,6 +10,9 @@ git clone https://github.com/MarcWeber/vim-addon-mw-utils
 git clone https://github.com/garbas/vim-snipmate
 git clone https://github.com/nvie/vim-flake8
 git clone https://github.com/tomtom/tcomment_vim
+git clone https://github.com/tpope/vim-fugitive.git
+vim -u NONE -c "helptags vim-fugitive/doc" -c q
+
 
 # Directly copy vim plugins from github
 cd ~/.vim/plugin
@@ -20,3 +23,4 @@ Use pathogen, and then add following plugins
 https://github.com/haya14busa/incsearch.vim
 https://github.com/vim-scripts/vim-auto-save
 https://github.com/tomtom/tcomment_vim
+https://github.com/tpope/vim-surround
