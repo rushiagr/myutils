@@ -244,3 +244,8 @@ set ignorecase
 " with backup files. We need to skip /tmp/ and /private/tmp because otherwise
 " we won't be able to modify cron files using 'crontab -e' command.
 set backupskip=/tmp/*,/private/tmp/*
+
+" Cursor should move to next line when we're at end of line and press 'right'.
+" Not sure if adding anything apart from 'h' and 'l' is required but i'll keep
+" it here same as I copied and will search later how it works.
+set whichwrap+=<,>,[,],h,l,~
