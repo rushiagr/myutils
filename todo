@@ -1,3 +1,8 @@
+- for pathogen, for vim-fugitive, you should run a command on terminal after copying the plugin files. That command is now added as a comment in vim-plugins file, but we should automate it.
+
+- scriptify pathogen installation and cloning of vim repositories, and add delay in install-aliases script
+- if pathogen is present, don't install. Same with all the plugins
+
 If i have a dir 'notes' and i have a file notes.txt, and i try to do 'cd note', it doesn't automatically takes me to 'notes' directory coz it sees a conflict.
 
 k
