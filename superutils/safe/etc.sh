@@ -68,8 +68,8 @@ function cd() {
         # data from a command into a variable, the variable will put all the
         # values from multiple line into a single line.
         # TODO(rushiagr): make the above comment more readable :)
-        if [[ $(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep -c ^$TRAILING_DIR_INPUT) == 1 ]]; then
-            MATCHED_DIR_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep ^$TRAILING_DIR_INPUT)
+        if [[ $(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep -ic ^$TRAILING_DIR_INPUT) == 1 ]]; then
+            MATCHED_DIR_IN_PENULTIMATE_PATH=$(ls -alrth $PENULTIMATE_PATH | grep ^d | grep [^.]$ | rev | cut -d ':' -f1 | rev | cut -d ' ' -f2- | grep -i ^$TRAILING_DIR_INPUT)
             FINAL_DIR=$(echo $PENULTIMATE_PATH/$MATCHED_DIR_IN_PENULTIMATE_PATH)
             builtin cd "${FINAL_DIR}"
         else
