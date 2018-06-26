@@ -127,9 +127,6 @@ function gch() {
 
 alias gcx='git add --all && git commit -a -m'
 
-alias grv='git review -y -vvv'
-
-
 # Fancy ones
 
 # Completely removes the last commit
@@ -185,35 +182,19 @@ gclgl() {
 alias gitinit='\
 git config --global user.name "Rushi Agrawal"; \
 git config --global user.email rushi.agr@gmail.com; \
-git config --global --add gitreview.username "rushiagr"; \
 git config --global help.autocorrect 1; \
 git config --global color.ui true; \
 git config --global core.editor /usr/bin/vim; \
 git config --global push.default simple; \
 git config --global core.excludesfile ~/.gitignore_global;'
 
+alias gitinit='\
+git config --global user.name "Rushi Agrawal"; \
+git config --global user.email agrrushi@amazon.com;'
+
 # All the git commands, blindly shortened
-alias glog='git log'
-alias gcommit='git commit'
 alias gsh='git show'
-alias gsh='git show --shortstat'
-alias gdiff='git diff'
-alias gpush='git push'
-alias gpull='git pull'
-alias grebase='git rebase'
-alias gmerge='git merge'
-alias grm='git rm'
-alias gmv='git mv'
-alias gapply='git apply --ignore-space-change --ignore-whitespace'
-alias gclone='git clone'
-alias gcheckout='git checkout'
-alias gbranch='git branch'
-alias gblame='git blame'
-alias gstatus='git status'
-alias greset='git reset'
-alias gremote='git remote'
-alias gadd='git add'
-alias greview='git review'
+alias gshs='git show --shortstat'
 
 _base_grax() {
     # param 1: remote name
