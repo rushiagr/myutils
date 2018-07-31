@@ -98,7 +98,7 @@ set foldnestmax=2
 " python files
 " NOTE: use 'setlocal' instead of 'set', as otherwise the setting will be
 " applied to all files opened in vim and not just the current, local file
-autocmd BufNewFile,BufRead *.py setlocal textwidth=79
+" autocmd BufNewFile,BufRead *.py setlocal textwidth=79
 autocmd BufNewFile,BufRead *.vimrc setlocal textwidth=79
 " Switch on syntax highlighting for Vagrantfile files
 au BufNewFile,BufRead Vagrantfile setlocal filetype=ruby
