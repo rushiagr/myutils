@@ -1,0 +1,11 @@
+#
+https://github.com/haya14busa/incsearch.vim
+https://github.com/vim-scripts/vim-auto-save
+https://github.com/tomtom/tcomment_vim
+https://github.com/tpope/vim-surround
+https://github.com/vim-airline/vim-airline
+https://github.com/tpope/vim-fugitive.git
+# vim -u NONE -c "helptags vim-fugitive/doc" -c q # supposedly required after vim-fugitive installation
+https://github.com/tpope/vim-obsession
+# vim -u NONE -c "helptags vim-obsession/doc" -c q
+
