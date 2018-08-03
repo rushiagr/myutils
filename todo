@@ -1,3 +1,5 @@
+- Don't move existing dotfiles to /tmp, but a location which persist across reboots.
+
 - for pathogen, for vim-fugitive, you should run a command on terminal after copying the plugin files. That command is now added as a comment in vim-plugins file, but we should automate it.
 
 - scriptify pathogen installation and cloning of vim repositories, and add delay in install-aliases script
@@ -14,3 +16,5 @@ k
   provide alternative for c-], 3 (lowercase of hash)
 * Abstract out pattern-matching code to a function
 * make my new 'cd' work for files which has spaces in their names
+* make cd and git commands work with fuzzy matching (or use some fuzzy matcher?)
+
