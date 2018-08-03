@@ -1,5 +1,5 @@
 function mx() {
-    if [ -z $1]; then
+    if [[ -z $1 ]]; then
         tmux -2
     else
         tmux -2 new -s $1

@@ -75,7 +75,7 @@ fi
 
 vim_plugins_to_download=0
 cd ~/.vim/bundle
-for repo_url in $(cat $MYUTILS_DIR_PATH/vim-plugins); do
+for repo_url in $(cat $MYUTILS_DIR_PATH/vim-plugins | grep -v "^#" | grep -v "^$"); do
     plugin_name=$(echo $repo_url | rev | cut -d/ -f1 | rev)
     if [[ $(ls ~/.vim/bundle/ | grep -c $plugin_name$) == 0 ]]; then
         if [[ $vim_plugins_to_download == 0 ]]; then
