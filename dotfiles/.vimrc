@@ -249,3 +249,32 @@ set backupskip=/tmp/*,/private/tmp/*
 " Not sure if adding anything apart from 'h' and 'l' is required but i'll keep
 " it here same as I copied and will search later how it works.
 set whichwrap+=<,>,[,],h,l,~
+
+" <bracketed paste start>
+" Below few lines allows to paste any code in insert mode without destroying
+" the formatting due to autoindent settings. Below lines will eliminate need
+" for using 'set paste' and 'set nopaste' for pasting code containing leading
+" spaces
+" Source: https://stackoverflow.com/a/7053522/1143173
+if exists("g:loaded_bracketed_paste")
+  finish
+endif
+let g:loaded_bracketed_paste = 1
+
+let &t_ti .= "\<Esc>[?2004h"
+let &t_te = "\e[?2004l" . &t_te
+
+function! XTermPasteBegin(ret)
+  set pastetoggle=<f29>
+  set paste
+  return a:ret
+endfunction
+
+execute "set <f28>=\<Esc>[200~"
+execute "set <f29>=\<Esc>[201~"
+map <expr> <f28> XTermPasteBegin("i")
+imap <expr> <f28> XTermPasteBegin("")
+vmap <expr> <f28> XTermPasteBegin("c")
+cmap <f28> <nop>
+cmap <f29> <nop>
+" <bracketed paste end>
