@@ -95,6 +95,11 @@ function pskill() {
     kill -9 $(ps aux | grep -i $1 | awk '{print $2}')
 }
 
+# 'sudo pskill'
+function spskill() {
+    sudo kill -9 $(ps aux | grep -i $1 | awk '{print $2}')
+}
+
 alias venv='source ~/src/venvs/main/bin/activate'
 alias quit='exit'
 alias unproxy='unset http_proxy https_proxy no_proxy'
