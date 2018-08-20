@@ -253,3 +253,7 @@ function gpur() {
 alias gmupdate='git checkout master && git pull origin master && git checkout -'
 
 alias gpuoms='git stash && git pull origin master && git stash pop'
+
+function git_update_last_commit_time() {
+    LC_ALL=C GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)"
+}
