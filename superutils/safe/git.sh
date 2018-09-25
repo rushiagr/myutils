@@ -109,6 +109,13 @@ function gch() {
     num_matches=0
     last_match=''
     for br in $branches; do
+        # If branch with exact name found, check that out and return
+        exact_match=$(echo $br | grep "^$1$")
+        if [[ ! -z $match ]]; then
+            git checkout $exact_match
+            return
+        fi
+
         match=$(echo $br | grep "^$1")
         if [[ ! -z $match ]]; then
             num_matches=$(($num_matches+1))
