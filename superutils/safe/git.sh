@@ -111,7 +111,7 @@ function gch() {
     for br in $branches; do
         # If branch with exact name found, check that out and return
         exact_match=$(echo $br | grep "^$1$")
-        if [[ ! -z $match ]]; then
+        if [[ ! -z $exact_match ]]; then
             git checkout $exact_match
             return
         fi
