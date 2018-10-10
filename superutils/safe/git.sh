@@ -32,6 +32,7 @@ alias gpomd='git push origin master >/dev/null 2>&1 &'
 
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
+alias gchp='git checkout -p'
 
 
 function gru() {
