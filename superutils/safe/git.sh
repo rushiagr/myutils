@@ -5,6 +5,7 @@ alias gba='git branch --all'
 alias gl='git log'
 alias gr='git remote --verbose'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias ga='git add'
 
 alias gds='git diff --stat'
