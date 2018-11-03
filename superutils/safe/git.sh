@@ -92,7 +92,7 @@ function gbd() {
             fi
         done
         if [ $num_matches -eq 0 ]; then
-            echo "No branch matches pattern '^$branch_to_delete'"
+            echo "No branch matches/multiple branches match pattern '$branch_to_delete'"
         elif [ $num_matches -eq 1 ]; then
             git branch -D $last_match
         else
@@ -140,13 +140,16 @@ function gch() {
     done
     if [ $num_matches -eq 0 ]; then
         # Check if a matching branch exists at one of the remotes
-        remote_branch_count=$(git branch -a | sed s/\ //g | grep ^remotes | grep -c $1)
-        if [[ $remote_branch_count -eq 0 ]]; then
-            echo "No branch matches pattern '^$1'"
-        else
-            remote_branch_name=$(git branch -a | sed s/\ //g | grep ^remotes | grep $1)
+        remote_branch_count=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | grep -c $1)
+        if [[ $remote_branch_count -eq 1 ]]; then
+            remote_branch_name=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | grep $1)
             remote_branch_name=$(echo $remote_branch_name | cut -d '/' -f 3-)
             git checkout $remote_branch_name
+            return
+        else
+            echo "No branch matches/multiple branches match pattern '$1'"
+            echo "Matching branches:"
+            git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | grep $1
         fi
     elif [ $num_matches -eq 1 ]; then
         git checkout $last_match
