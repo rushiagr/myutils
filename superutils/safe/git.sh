@@ -229,6 +229,7 @@ function grao() {
 }
 
 alias grur='git remote update rushiagr'
+alias gruo='git remote update origin'
 alias grrr='git remote remove rushiagr'
 alias grro='git remote remove origin'
 alias gprm='git push rushiagr master'
