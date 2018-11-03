@@ -125,7 +125,15 @@ function gch() {
         fi
     done
     if [ $num_matches -eq 0 ]; then
-        echo "No branch matches pattern '^$1'"
+        # Check if a matching branch exists at one of the remotes
+        remote_branch_count=$(git branch -a | sed s/\ //g | grep ^remotes | grep -c $1)
+        if [[ $remote_branch_count -eq 0 ]]; then
+            echo "No branch matches pattern '^$1'"
+        else
+            remote_branch_name=$(git branch -a | sed s/\ //g | grep ^remotes | grep $1)
+            remote_branch_name=$(echo $remote_branch_name | cut -d '/' -f 3-)
+            git checkout $remote_branch_name
+        fi
     elif [ $num_matches -eq 1 ]; then
         git checkout $last_match
     else
