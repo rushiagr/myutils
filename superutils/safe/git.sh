@@ -72,6 +72,14 @@ function gbd() {
         return
     fi
 
+    # If there is exact one branch which matches provided pattern, delete that branch
+    branch_match_count=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i -c $1)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i $1)
+        git branch -D $branch_match_name
+        return
+    fi
+
     for branch_to_delete in $*; do
         branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
         num_matches=0
@@ -107,6 +115,12 @@ function gch() {
         return
     fi
 
+    branch_match_count=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i -c $1)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i $1)
+        git checkout $branch_match_name
+        return
+    fi
     branches=$(git branch | cut -d'*' -f2 | awk '{print $1}')
     num_matches=0
     last_match=''
