@@ -66,7 +66,83 @@ function gru() {
     done
 }
 
+function branch_matches() {
+    # First value:
+    #     n   multiple matches
+    #     1   exactly one match
+    #     0   no matches
+    #     -1  error
+    #     -3  exactly one match, but branch not local
+
+    if [[ -z $1 ]]; then
+        echo -1
+        return
+    fi
+
+    git_branch=$(git branch)
+    git_branch_all=$(git branch -a)
+
+    # If there is exactly one branch which exactly matches specified pattern, print that match
+    branch_match_count=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i -c ^$1$)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i ^$1$)
+        echo 1 $branch_match_name
+        return
+    fi
+
+    # If there is exactly one branch which matches specified pattern, print that match
+    branch_match_count=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i -c $1)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i $1)
+        echo 1 $branch_match_name
+        return
+    fi
+
+    # If there is exactly one branch which starts with specified pattern, print that match
+    branch_match_count=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i -c ^$1)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch | cut -d'*' -f2 | awk '{print $1}' | grep -i ^$1)
+        echo 1 $branch_match_name
+        return
+    fi
+
+    # If there is exactly one 'remote' branch which exactly matches specified pattern, print that match
+    branch_match_count=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | cut -d '/' -f 3- | grep -i -c ^$1$)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | cut -d '/' -f 3- | grep -i ^$1$)
+        echo -3 $branch_match_name
+        return
+    fi
+
+    # If there is exactly one 'remote' branch which matches specified pattern, print that match
+    branch_match_count=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | cut -d '/' -f 3- | grep -i -c $1)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | cut -d '/' -f 3- | grep -i $1)
+        echo -3 $branch_match_name
+        return
+    fi
+
+    # If there is exactly one 'remote' branch which starts with specified pattern, print that match
+    branch_match_count=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | cut -d '/' -f 3- | grep -i -c ^$1)
+    if [[ $branch_match_count -eq 1 ]]; then
+        branch_match_name=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep ^remotes | cut -d '/' -f 3- | grep -i ^$1)
+        echo -3 $branch_match_name
+        return
+    fi
+
+    matches=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep -i $1)
+    if [[ '${matches}' == "" ]]; then
+        echo 0 "No branch matches"
+        return
+    else
+        matches_count=$(git branch -a | cut -d'*' -f2 | awk '{print $1}' | grep -i -c $1)
+        echo $matches_count $matches
+    fi
+}
+
 function gbd() {
+    # NOTE(rushiagr): we can optimise here. See branch_matches function to see how
+
     if [[ -z $1 ]]; then
         echo "No branch specified"
         return
