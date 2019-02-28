@@ -54,8 +54,17 @@ function cd() {
     RETVAL=$?
 
     if [[ $RETVAL != 0 ]]; then
+        # If there is exactly one directory which matches pattern *$1*,
+        # case-insensitively, where $1 is the first argument, then cd to that
+        # directory. E.g. If there are four directories 'one', 'two', 'three',
+        # 'four', and you do `cd hr`, then cd into 'three' directory.
+        matching_dir_count=$(ls | grep -i -c "${1}")
+        if [[ $matching_dir_count == 1 ]]; then
+            matching_dir=$(ls | grep -i "${1}")
+            builtin cd $matching_dir
+        fi
+
         TRAILING_DIR_INPUT=$(echo $(pwd)/"${1}" | rev | cut -d'/' -f1 | rev)
-        #return
         # If exactly one directory pattern-matches $2, go to that directory
         # e.g. if the command is 'cd a/t' and there are two directories
         # 'a/one/' and 'a/two/', then cd the user to 'a/two/' directory
