@@ -62,6 +62,7 @@ function cd() {
         if [[ $matching_dir_count == 1 ]]; then
             matching_dir=$(ls | grep -i "${1}")
             builtin cd $matching_dir
+            return
         fi
 
         TRAILING_DIR_INPUT=$(echo $(pwd)/"${1}" | rev | cut -d'/' -f1 | rev)
