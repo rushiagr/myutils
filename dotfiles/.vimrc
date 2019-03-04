@@ -219,6 +219,8 @@ set modeline
 " changes in all modes including visual mode, and for changes made in insert
 " mode autosaves as soon as insert mode is exited)
 " 4. Not print status saying 'Autosaved at <time>'
+"
+" If you want to temporarily disable auto-save, remove below three lines
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
