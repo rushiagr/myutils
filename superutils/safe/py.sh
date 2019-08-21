@@ -40,6 +40,9 @@ alias mye2='source ~/etc/venvpy27/bin/activate'
 alias mye3='source ~/etc/venvpy35/bin/activate'
 alias me='source ~/etc/venvpy35/bin/activate'
 
+# Activate my virtualenv
+alias myva="source ~/src/my-python-root-venv/.venv/bin/activate"
+
 # venv activate
 function va() {
 #1. if a directory is specified:

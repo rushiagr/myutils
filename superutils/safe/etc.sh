@@ -40,6 +40,7 @@ function cdn() {
     cd ~/notes/$1
 }
 alias cdv='cd ~/vagrant'
+alias cdw='cd ~/ws'
 
 function cd() {
 # Improved 'cd' command
@@ -96,6 +97,7 @@ function pingbg() {
 }
 alias fs='sudo chown stack:stack `readlink /proc/self/fd/0`'
 
+# Usage: cat file | aw 2,3,4
 function aw() {
     awk "{print \$${1:-1}}" $2;
 }
@@ -109,6 +111,11 @@ function pskill() {
 # 'sudo pskill'
 function spskill() {
     sudo kill -9 $(ps aux | grep -i $1 | awk '{print $2}')
+}
+
+# Find common lines between two files
+function common () {
+    comm -12 <(sort $1) <(sort $2)
 }
 
 alias venv='source ~/src/venvs/main/bin/activate'
@@ -266,3 +273,10 @@ alias htop='sudo htop'
 alias dk='sudo docker'
 
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+alias chromemem="ps aux | grep 'Chrome' | awk '{vsz += $5; rss += $6} END { print \"vsz=\"vsz, \"rss=\"rss }'"
+
+function dirmd5sum() {
+    # Works with only 'gmd5sum' for now. Expects directory name as arg
+    find -s $1 -type f -exec gmd5sum {} \; | gmd5sum
+}
