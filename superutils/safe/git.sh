@@ -22,14 +22,14 @@ alias gcam='git commit -a -m'
 alias gcm="git commit -m "$1""
 alias gca='git commit --amend'
 alias gcaa='git commit -a --amend'
-alias gpom='git push --set-upsteram origin master'
+alias gpom='git push --set-upstream origin master'
 alias gpuom='git pull origin master'
 # this requires push.default to be set to 'simple'. Note that this might not
 # work if the --set-upstream thing is not set
 alias gp='git push'
 alias gpu='git pull'
 
-alias gpomd='git push --set-upsteram origin master >/dev/null 2>&1 &'
+alias gpomd='git push --set-upstream origin master >/dev/null 2>&1 &'
 
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
@@ -333,25 +333,25 @@ alias grur='git remote update rushiagr'
 alias gruo='git remote update origin'
 alias grrr='git remote remove rushiagr'
 alias grro='git remote remove origin'
-alias gprm='git push --set-upsteram rushiagr master'
+alias gprm='git push --set-upstream rushiagr master'
 alias gpurm='git pull rushiagr master'
 
 # Git push origin <current_branch>
 function gpo() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git push --set-upsteram origin $CURR_BRANCH $1
+    git push --set-upstream origin $CURR_BRANCH $1
 }
 
 # Git pull origin <current_branch>
 function gpuo() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git pull --set-upsteram origin $CURR_BRANCH $1
+    git pull --set-upstream origin $CURR_BRANCH $1
 }
 
 # Git push rushiagr <current_branch>
 function gpr() {
     CURR_BRANCH=$(git branch | grep ^* | cut -d' ' -f2)
-    git push --set-upsteram rushiagr $CURR_BRANCH $1
+    git push --set-upstream rushiagr $CURR_BRANCH $1
 }
 
 # Git pull rushiagr <current_branch>
