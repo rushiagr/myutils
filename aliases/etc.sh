@@ -14,3 +14,8 @@ bind "set show-all-if-ambiguous on"
 
 # Adding this enables reverse reverse search in terminal, on mac
 stty -ixon
+
+# Changes color of directories in output of 'ls' from blue to green color. That
+# way it's more readable with f.lux on. Seems to not work on macs, but works
+# fine with Linux machines
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
