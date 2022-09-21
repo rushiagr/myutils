@@ -61,7 +61,7 @@ echo "    source ~/.aliasrc"
 
 if [[ "${TEMPDIR}" != "" ]]; then
     echo -e "\nThe following existing dotfiles are moved to temp dir $TEMPDIR:"
-    echo $(ls -a $TEMPDIR | grep ^\\.[a-zA-Z])
+    echo $(ls -a $TEMPDIR | grep "^\\.[a-zA-Z]")
 fi
 
 # Section where pathogen and all vim plugins are set up.blah
