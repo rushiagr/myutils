@@ -22,7 +22,7 @@ if [[ $UNAME == "Darwin" ]]; then
         brew install coreutils
     fi
     CURR_FILE_PATH=$(greadlink -f $0)
-    ZSHRC_FILE="$HOME/.zsh_profile"
+    ZSHRC_FILE="$HOME/.zprofile"
 else
     CURR_FILE_PATH=$(readlink -f $0)
 fi
