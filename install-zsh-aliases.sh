@@ -6,7 +6,7 @@
 UNAME=$(uname)
 
 function sedeasy {
-    if [ $UNAME == "Darwin" ]; then
+    if [[ $UNAME == "Darwin" ]]; then
           sed -i "" "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
       else
         sed -i "s/$(echo $1 | sed -e 's/\([[\/.*]\|\]\)/\\&/g')/$(echo $2 | sed -e 's/[\/&]/\\&/g')/g" $3
@@ -16,8 +16,8 @@ function sedeasy {
 ZSHRC_FILE="$HOME/.zshrc"
 
 
-if [ $UNAME == "Darwin" ]; then
-    if [ $(brew list | grep -c coreutils) == "0" ]; then
+if [[ $UNAME == "Darwin" ]]; then
+    if [[ $(brew list | grep -c coreutils) == "0" ]]; then
         echo "'coreutils' brew package not installed. Installing now..."
         brew install coreutils
     fi
@@ -41,14 +41,14 @@ DOTFILES=$(ls -a $MYUTILS_DIR_PATH/dotfiles | grep ^\\.[a-zA-Z])
 
 TEMPDIR=""
 for DOTFILE in $DOTFILES; do
-    if [ -f $HOME/${DOTFILE} ]; then
-        if [ "${TEMPDIR}" == "" ]; then
+    if [[ -f $HOME/${DOTFILE} ]]; then
+        if [[ "${TEMPDIR}" == "" ]]; then
             TEMPDIR=$(mktemp -d /tmp/myutils-backup-$(date +"%y%m%d%H%M%S")-XXXX)
         fi
         mv $HOME/$DOTFILE $TEMPDIR
     fi
 
-    if [ $UNAME == "Darwin" ]; then
+    if [[ $UNAME == "Darwin" ]]; then
         gcp --recursive $MYUTILS_DIR_PATH/dotfiles/$DOTFILE $HOME
     else
         cp --recursive $MYUTILS_DIR_PATH/dotfiles/$DOTFILE $HOME
@@ -59,7 +59,7 @@ echo "Install successful."
 echo "Aliases will be sourced from the next new shell session. To source them in the current session, do"
 echo "    source ~/.aliasrc"
 
-if [ "${TEMPDIR}" != "" ]; then
+if [[ "${TEMPDIR}" != "" ]]; then
     echo -e "\nThe following existing dotfiles are moved to temp dir $TEMPDIR:"
     echo $(ls -a $TEMPDIR | grep ^\\.[a-zA-Z])
 fi
