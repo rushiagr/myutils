@@ -37,10 +37,10 @@ if [[ $IS_ZSHRC_EDITED -eq 0 ]]; then
     echo "source $HOME/.aliasrc" >> $ZSHRC_FILE
 fi
 
-DOTFILES=$(ls -a $MYUTILS_DIR_PATH/dotfiles | grep ^\\.[a-zA-Z])
+DOTFILES=$(ls -a $MYUTILS_DIR_PATH/dotfiles | grep "^\\.[a-zA-Z]")
 
 TEMPDIR=""
-for DOTFILE in $DOTFILES; do
+for DOTFILE in $(echo $DOTFILES); do
     if [[ -f $HOME/${DOTFILE} ]]; then
         if [[ "${TEMPDIR}" == "" ]]; then
             TEMPDIR=$(mktemp -d /tmp/myutils-backup-$(date +"%y%m%d%H%M%S")-XXXX)
