@@ -26,8 +26,8 @@ if [[ $UNAME == "Darwin" ]]; then
 else
     CURR_FILE_PATH=$(readlink -f $0)
 fi
+
 MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
-#VPN_CONF_PATH=${MYUTILS_DIR_PATH}/etc/vpn.conf
 
 cat ${MYUTILS_DIR_PATH}/superutils/safe/* >>  $HOME/.aliasrc
 
