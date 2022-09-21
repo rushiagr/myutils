@@ -7,7 +7,7 @@ The shortcuts are either shell aliases or functions.
 
 I created these aliases for commands I was using very frequently. The focus was on reducing the number of keystrokes. For example, I found myself doing 'git push origin master' quite a lot of times, so I created `gpom`. Care has been taken to not mask any existing aliases/commands of Bash shell.
 
-I work mostly on bash shell on Ubuntu, and I have not tested commands on any other OS/shell, except a little bit on OS X 10.10.
+I work mostly on zsh shell on Mac, and I have not tested commands on any other OS/shell.
 
 ## Installation
 
