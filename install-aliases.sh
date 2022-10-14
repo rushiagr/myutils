@@ -29,9 +29,7 @@ fi
 
 MYUTILS_DIR_PATH=$(echo $CURR_FILE_PATH | rev | cut -d'/' -f2- | rev)
 
-# NOTE: BUG: multiple runs just keep on appending to ~/.aliasrc, thereby
-# causing more and more slowness on shell startup
-cat ${MYUTILS_DIR_PATH}/superutils/safe/* >>  $HOME/.aliasrc
+cat ${MYUTILS_DIR_PATH}/superutils/safe/* >  $HOME/.aliasrc
 cat ${MYUTILS_DIR_PATH}/unsafe/* >>  $HOME/.aliasrc
 
 export IS_ZSHRC_EDITED=$(cat $ZSHRC_FILE | grep -c "source $HOME/.aliasrc")
