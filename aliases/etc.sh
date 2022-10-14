@@ -6,8 +6,6 @@ bind '\C-w:unix-filename-rubout'
 # last command I ran.
 bind Space:magic-space
 
-printf "qr "
-
 # Start showing matches immediately after pressing tab, instead of pressing tab
 # twice
 bind "set show-all-if-ambiguous on"
