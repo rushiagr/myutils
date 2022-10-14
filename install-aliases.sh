@@ -56,6 +56,13 @@ for DOTFILE in $(echo $DOTFILES); do
     fi
 done
 
+echo "Installing TPM, Tmux Plugin Manager"
+echo "Deleting existing TPM directory if already present..."
+rm -rf ~/.tmux/plugins/tpm
+echo "Now cloning TPM..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo "Done setting up TPM"
+
 echo "Install successful."
 echo "Aliases will be sourced from the next new shell session. To source them in the current session, do"
 echo "    source ~/.aliasrc"
