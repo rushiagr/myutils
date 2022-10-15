@@ -173,7 +173,7 @@ function f() {
 }
 
 function fdelay() {
-    for i in `seq 1 10`; do
+    for i in `seq 1 1000`; do
         sleep 1
         $*
     done
