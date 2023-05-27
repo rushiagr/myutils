@@ -276,5 +276,8 @@ alias chromemem="ps aux | grep 'Chrome' | awk '{vsz += $5; rss += $6} END { prin
 
 function dirmd5sum() {
     # Works with only 'gmd5sum' for now. Expects directory name as arg
-    find -s $1 -type f -exec gmd5sum {} \; | gmd5sum
+    find -s $1 -type f -exec gmd5sum {} \; | gmd5sum;
 }
+
+# clear screen completely. Source: https://askubuntu.com/a/473770
+alias xclear="clear && printf '\e[3J'"
