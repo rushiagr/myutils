@@ -100,5 +100,5 @@ fi
 echo ""
 
 echo "NOTE: If it is the first time on this system, then don't forget to start"
-echo "a tmux shell and press previx-I (ctrl-b shift-i), to install all tmux"
+echo "a tmux shell and press prefix-I (ctrl-b shift-i), to install all tmux"
 echo "plugins"
