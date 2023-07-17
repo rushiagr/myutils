@@ -281,3 +281,7 @@ function dirmd5sum() {
 
 # clear screen completely. Source: https://askubuntu.com/a/473770
 alias xclear="clear && printf '\e[3J'"
+
+
+# Don't let homebrew run autoupdate whenever you run a command after a while
+export HOMEBREW_NO_AUTO_UPDATE=1
