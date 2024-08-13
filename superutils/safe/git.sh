@@ -5,6 +5,7 @@ alias gba='git branch --all'
 alias gl='git log'
 alias gr='git remote --verbose'
 alias gd='git diff'
+alias gd2='git diff --color=always | /opt/homebrew/Cellar/git/2.46.0//share/git-core/contrib/diff-highlight/diff-highlight | less -RFX'
 alias gdc='git diff --cached'
 alias ga='git add'
 
