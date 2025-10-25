@@ -35,6 +35,7 @@ alias gpomd='git push --set-upstream origin master >/dev/null 2>&1 &'
 alias gchb='git checkout -b'
 alias gchm='git checkout master'
 alias gchp='git checkout -p'
+alias gcp='git cherry-pick'
 
 
 function gru() {
