@@ -36,6 +36,8 @@ alias gchb='git checkout -b'
 alias gchm='git checkout master'
 alias gchp='git checkout -p'
 alias gcp='git cherry-pick'
+alias gdm='git diff main'
+alias gdms='git diff main --stat'
 
 
 function gru() {
