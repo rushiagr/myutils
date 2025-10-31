@@ -307,7 +307,17 @@ git config --global user.name "Rushi Agrawal"; \
 git config --global user.email agrrushi@amazon.com;'
 
 # All the git commands, blindly shortened
-alias gsh='git show'
+
+# 'git show' shortcut, but 'gsh 10', for example, will also show combined diff
+# of last 10 commits i.e. would run 'git diff HEAD~10'
+gsh() {
+  if [[ $1 =~ ^[0-9]+$ ]]; then
+    git diff HEAD~$1
+  else
+    git show "$@"
+  fi
+}
+
 alias gshs='git show --shortstat'
 
 _base_grax() {
