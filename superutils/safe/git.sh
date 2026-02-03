@@ -382,3 +382,38 @@ alias gpuoms='git stash && git pull origin master && git stash pop'
 function git_update_last_commit_time() {
     LC_ALL=C GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)"
 }
+
+# Delete current worktree and its branch, then return to main repo
+# Usage: wtdel
+wtdel() {
+    local worktree_path branch_name main_repo confirm
+    worktree_path=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [[ -z "$worktree_path" ]]; then
+        echo "Error: not in a git repository"
+        return 1
+    fi
+    branch_name=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [[ -z "$branch_name" || "$branch_name" = "main" || "$branch_name" = "master" ]]; then
+        echo "Error: cannot delete main/master branch or not on a branch"
+        return 1
+    fi
+    main_repo=$(git worktree list --porcelain | head -1 | sed 's/worktree //')
+    if [[ "$worktree_path" = "$main_repo" ]]; then
+        echo "Error: you're in the main repo, not a worktree"
+        return 1
+    fi
+    echo "Will delete:"
+    echo "  worktree: $worktree_path"
+    echo "  branch:   $branch_name"
+    echo "  going to: $main_repo"
+    echo ""
+    read "confirm?Continue? [y/N] "
+    case "$confirm" in
+        y|Y) ;;
+        *) echo "Aborted"; return 0 ;;
+    esac
+    cd "$main_repo" || { echo "Failed to cd to $main_repo"; return 1; }
+    git worktree remove "$worktree_path" --force || { echo "Failed to remove worktree"; return 1; }
+    git branch -D "$branch_name" || { echo "Failed to delete branch"; return 1; }
+    echo "Done! Now in: $(pwd)"
+}
