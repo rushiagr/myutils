@@ -387,6 +387,7 @@ function git_update_last_commit_time() {
 # Usage: wtdel
 wtdel() {
     local worktree_path branch_name main_repo confirm
+    local ignored_files
     worktree_path=$(git rev-parse --show-toplevel 2>/dev/null)
     if [[ -z "$worktree_path" ]]; then
         echo "Error: not in a git repository"
@@ -400,6 +401,20 @@ wtdel() {
     main_repo=$(git worktree list --porcelain | head -1 | sed 's/worktree //')
     if [[ "$worktree_path" = "$main_repo" ]]; then
         echo "Error: you're in the main repo, not a worktree"
+        return 1
+    fi
+    # git worktree remove --force deletes ignored files too.
+    # So first, find ignored untracked files which may contain useful notes or data.
+    # We intentionally skip common Python-generated junk because that is usually safe to lose.
+    ignored_files=$(
+        git ls-files --others -i --exclude-standard | grep -Ev \
+            '(^|/)(__pycache__/|\.pytest_cache/|\.mypy_cache/|\.ruff_cache/|\.hypothesis/)|(^|/)\.coverage($|\.)|\.py[cod]$' || true
+    )
+    if [[ -n "$ignored_files" ]]; then
+        # Stop here so the user can move or commit these files before deleting the worktree.
+        printf '\033[31mRefusing to delete worktree. Found ignored untracked files that may contain useful data:\033[0m\n'
+        printf '%s\n' "$ignored_files"
+        printf '\033[31mCommit, move, or delete those files first.\033[0m\n'
         return 1
     fi
     echo "Will delete:"
